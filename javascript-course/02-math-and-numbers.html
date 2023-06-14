@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSimpleDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>SuperSimpleDev<span>- Math and Numbers -</span></h1>
+    </header>
+    <main>
+      <aside>
+        <h2>Operators</h2>
+        <ul>
+          <li>+</li>
+          <li>-</li>
+          <li>*</li>
+          <li>/</li>
+        </ul>
+        <h2>Order of Operations</h2>
+        <ul>
+          <li>(...)</li>
+          <li>* /</li>
+          <li>+ -</li>
+          <li>Operator precedence</li>
+          <li>it will calculate from left to right if have the same priority</li>
+        </ul>
+        <h2>Terminologies</h2>
+        <ul>
+          <li>2,3,4 are called Intergers</li>
+        </ul>
+        <h2>Best practice when calculating money</h2>
+        <ul>
+          <li>Do calculation in cents</li>
+          <li>Convert back to dollars by dividing by 100</li>
+        </ul>
+      </aside>
+      <div id="main-col">
+        <h2>Lesson 2 Execises</h2>
+        <h3>2a. At a restuarant, you order 1 soup for $10, 3 burgers for $8 each, and 1 ice cream for $5. Use Javascript to calculate the cost of the order.</h3>
+        <pre class="gray">
+          10 + (3 * 8) + 5
+
+          // 39
+        </pre>
+        <h3>2b. You're at a restaurant with 2 friends (3 people in total) and make the same order as 2a. Calculate how much each person pays</h3>
+        <pre class="gray">
+          (10 + (3 * 8) + 5) / 3
+
+          // 13
+        </pre>
+        <h3>2c. Calculate the total cost of a toaster ($18.50) and 2 shirts ($7.50)</h3>
+        <pre class="gray">
+          (1850 + (2 * 750)) / 100
+
+          // 33.5
+        </pre>
+        <h3>2d. Calculate a 10% tax for the total in exercise 2c.</h3>
+        <pre class="gray">
+          33.5 * 0.1
+
+          // 3.35
+        </pre>
+        <h3>2e. Calculate a 20% tax for the total in 2c (remember that 1% = 1/100, so 20% = 20/100 = 0.2)</h3>
+        <pre class="gray">
+          33.5 * 0.2
+
+          // 6.7
+        </pre>
+        <h3><u><strong>Setup:</strong></u> in the Amazon project, go to the home page and add a toaster ($18.99) to your cart so you have 1 basketball, 1 t-shirt, and 1 toaster.<br>Choose $4.99 shipping for the toaster</h3>
+        <h3>2f. Calculate the cost of products (before shipping and taxes)<br>Hint: calculate in cents to avoid inaccuracies</h3>
+        <pre class="gray">
+          (2095 + 799 + 1899) / 100;
+
+          // 47.93
+        </pre>
+        <h3>2g. Calculate the Total before tax</h3>
+        <pre class="gray">
+          ((2095 + 799 + 1899) + 499 )/ 100;
+
+          // 52.92
+        </pre>
+        <h3>Calculate the 10% tax exactly.<br>Hint: use Math.round()</h3>
+        <pre class="gray">
+          Math.round((2095 + 799 + 1899 + 499) * .1) / 100;
+
+          // 5.29
+        </pre>
+        <h3>2i. Calculate Order total at the bottom.</h3>
+        <pre class="gray">
+          (5292 + 529) / 100
+
+          // 58.21
+        </pre>
+        <h3><u><strong>Finish:</strong></u> after finishing 2i remove the toaster from your cart.</h3>
+        <h3>2j. Let's say we want to always round a number down (2.8 => 2)</h3>
+        <pre class="gray">
+          Math.floor(2.8);
+
+          // 2
+        </pre>
+        <h3>2k. Let's always round a number up (2.2 => 3). Search how to do this.</h3>
+        <pre class="gray">
+          Math.ceil(2.2);
+
+          // 3
+        </pre>
+        <h2>Challenge Exercises</h2>
+        <h3>We'll use JavaScript to convert temperature from Celcius (°C) to Fahrenheit (°F). The formula is:</h3>
+        <ul>
+          <li>Fahrenheit = (Celsius * 9/5) + 32</li>
+          <li>Celcius = (Fahrenheit - 32) * 5/9</li>
+        </ul>
+        <h3>2l. The temperature is 25°C. Calculate temperature in Fahrenheit. (77)</h3>
+        <pre class="gray">
+          (25 * 9/5) + 32
+
+          //77
+        </pre>
+        <h3>2m. The temperature is 86°F. Calculate the temperature in Celcius. (30)</h3>
+        <pre class="gray">
+          (86 - 32) * 5/9
+
+          // 30
+        </pre>
+        <h3>2n. The temperature is -5°C. Calculate the temperature in Fahrenheit. (23)</h3>
+        <pre class="gray">
+          (-5 * 9/5) + 32
+
+          //23
+        </pre>
+
+      </div>
+    </main>
+    <footer>
+      <p>Copy Right</p>
+    </footer>
+
+
+
+
+  </body>
+
+
+
+</html>
