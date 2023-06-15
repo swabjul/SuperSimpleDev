@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSimpleDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <style>
+
+      #main-col section {
+        margin-bottom: 40px;
+      }
+      #main-col section.prj-1 button {
+        padding: 2px 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SuperSimpleDev<span>- Variables -</span></h1>
+    </header>
+    <main>
+      <aside>
+        <h2>What is a variable?</h2>
+        <ul>
+          <li>Variable is a container that we can save a value and then use it later</li>
+        </ul>
+        <h2>Variable name restrictions</h2>
+        <ul>
+          <li>Can't use special words. Example: let</li>
+          <li>Can't start with a number</li>
+          <li>Can't use special character. Except $ and _</li>
+        </ul>
+        <h2>Best practices for naming variable</h2>
+        <ul>
+          <li>camelCase</li>
+          <li>Use const by default (Only use let when we need to change the variable)</li>
+        </ul>
+        <h2>Naming Convention</h2>
+        <ul>
+          <li>camelCase - is the stand for JavaScript</li>
+          <li>PascalCase - use in 1 feature in JavaScript</li>
+          <li>kebab-case - doesn't work in Javascript but we can use it in HTML and CSS</li>
+          <li>snake_case - used in other language</li>
+        </ul>
+        <h2>3 way creating a variable</h2>
+        <ul>
+          <li>let = if we have to change value</li>
+          <li>const = can't change its value</li>
+          <li>var = we don't use this in new JavaScript</li>
+        </ul> 
+      </aside>
+      <div id="main-col">
+        <h2>Lesson 5 Project</h2>
+        <section class="prj-1">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="addCart(1)">Add to Cart</button> 
+          <button onclick="addCart(2)">+2</button> 
+          <button onclick="addCart(3)">+3</button> 
+          <button onclick="resetCart()">Reset Cart</button> 
+        </section>
+        <h2>Lesson 5 Execises</h2>
+        <h3>5a. Create a script element. Inside the script, create a variable called 'name', and save your name in this variable (as a string).</h3>
+        <pre class="gray">
+          const name = swab;
+        </pre>
+        <h3>5b. Continuing from 5a, siplay the message 'My name is:${name}' in the console (insert the 'name' variable created in 5a into this message)</h3>
+        <pre class="gray">
+          const name = "Swab";
+
+          console.log(`My name is:${name}`);
+        </pre>
+        <h3>5c. At a restaurant, you order 1 coffee ($5), 2 bagels ($3 each), and 1 soup ($9). Calculate the cost and save it in a variable called 'cost'</h3>
+        <pre class="gray">
+          const coffee = 5;
+          const bagel = 3;
+          const soup = 9;
+
+          let cost = coffee + (bagel * 2) + soup;
+        </pre>
+        <h3>5d. Continuing from 5c, display 'Cost of food: $${cost}' in the console.</h3>
+        <pre class="gray">
+          const coffee = 5;
+          const bagel = 3;
+          const soup = 9;
+
+          let cost = coffee + (bagel * 2) + soup;
+
+          console.log(`Cost of food:$${cost}`);
+        </pre>
+        <h3>5e. Let's say the restaurant charges a 10% tax. Using the 'cost' variable from 5c, calculate the tax (hint: multiply by 0.1), and save the result in a variable</h3>
+        <pre class="gray">
+          const coffee = 5;
+          const bagel = 3;
+          const soup = 9;
+
+          let cost = coffee + (bagel * 2) + soup;
+          let tax = cost * .1;
+
+          console.log(`Cost of food:$${cost}`);
+          console.log(`Tax (10%): $${tax}`);
+        </pre>
+        <h3>5f. Continuing from 5e, display 'Tax (10%): $${tax}' in the console.</h3>
+        <pre class="gray">
+          const coffee = 5;
+          const bagel = 3;
+          const soup = 9;
+
+          let cost = coffee + (bagel * 2) + soup;
+          let tax = cost * .1;
+          let totalCost = cost + tax;
+
+          console.log(`Cost of food:$${cost}`);
+          console.log(`Tax (10%): $${tax}`);
+        </pre>
+        <h3>5g. Continuing from 5f, calculate the total (cost + tax), save it in a variable callec 'totalCost', and display the message 'Total cost: $${totalCost}' in the console.</h3>
+        <pre class="gray">
+          const coffee = 5;
+          const bagel = 3;
+          const soup = 9;
+
+          let cost = coffee + (bagel * 2) + soup;
+          let tax = cost * .1;
+          let totalCost = cost + tax;
+
+          console.log(`Cost of food:$${cost}`);
+          console.log(`Tax (10%): $${tax}`);
+          console.log(`Total cost: $${totalCost}`);
+        </pre>
+        <h3>5h. In the Cart Quantity Project, add 2 more buttons '+4' and '+5', which increase the quantity by 4 and 5 when you click them. Try using +=</h3>
+        <section class="prj-1">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="addCart(1)">Add to Cart</button> 
+          <button onclick="addCart(2)">+2</button> 
+          <button onclick="addCart(3)">+3</button> 
+          <button onclick="addCart(4)">+4</button> 
+          <button onclick="addCart(5)">+5</button> 
+          <button onclick="resetCart()">Reset Cart</button> 
+        </section>
+        <h3>5i. In the Cart Quantity project, add a button 'Remove from the cart', which decreases the quantity by 1</h3>
+        <section class="prj-1">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="addCart(1)">Add to Cart</button> 
+          <button onclick="addCart(2)">+2</button> 
+          <button onclick="addCart(3)">+3</button> 
+          <button onclick="addCart(4)">+4</button> 
+          <button onclick="addCart(5)">+5</button> 
+          <button onclick="resetCart()">Reset Cart</button> 
+          <button onclick="removeCart()">Remove from Cart</button>
+        </section>
+        <h3>5j. Add 2 buttons '-2' and '-3', which decrease the quantity by 2 and 3</h3>
+        <section class="prj-1">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="addCart(1)">Add to Cart</button> 
+          <button onclick="addCart(2)">+2</button> 
+          <button onclick="addCart(3)">+3</button> 
+          <button onclick="addCart(4)">+4</button> 
+          <button onclick="addCart(5)">+5</button> 
+          <button onclick="resetCart()">Reset Cart</button> 
+          <button onclick="removeCart()">Remove from Cart</button>
+          <button onclick="removeCart(2)">-2</button>
+          <button onclick="removeCart(3)">-3</button>
+        </section>
+        <h3>5k. Use the shortcuts -- and -= in 5i and 5j</h3>
+        <section class="prj-1">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="addCart(1)">Add to Cart</button> 
+          <button onclick="addCart(2)">+2</button> 
+          <button onclick="addCart(3)">+3</button> 
+          <button onclick="addCart(4)">+4</button> 
+          <button onclick="addCart(5)">+5</button> 
+          <button onclick="resetCart()">Reset Cart</button> 
+          <button onclick="removeCart()">Remove from Cart</button>
+          <button onclick="removeCart(2)">-2</button>
+          <button onclick="removeCart(3)">-3</button>
+        </section>
+
+        <h2>Challenge Exercise</h2>
+        <h3>We'll build a calculator (don't worry, we'll do it step by step)</h3>
+        <h3>5l. Add the HTML structure and a title with the text 'Calculator'</h3>
+        <pre class="gray">
+          Skipped
+        </pre>
+        <h3>5m. Create these 5 buttons:</h3>
+        <section class="prj-1">
+          <button>1</button> 
+          <button>2</button> 
+          <button>3</button> 
+          <button>+</button> 
+          <button>=</button>
+        </section>
+        <h3>5n. Create a script, create a variable called 'calculation', and save an empty string inside: let calculation = '';<br>(This variable will store the calculation like '1 + 2' or '11 + 2 + 2')</h3>
+        <pre class="gray">
+          let calculation = "";
+        </pre>
+        <h3>5o. When we click the '1' button</h3>
+        <ul>
+          <li>Add the string '1' to the calculation variable: calculation += '1'</li>
+          <li>Display the calculation in the console: console.log(calculation)</li>
+        </ul>
+        <section class="prj-1">
+          <button onclick="calc(1)">1</button> 
+          <button>2</button> 
+          <button>3</button> 
+          <button>+</button> 
+          <button>=</button>
+        </section>
+        <h3>5p. Do the same for the '2', '3', and '+' buttons (add ' + ' instead of "+").</h3>
+        <section class="prj-1">
+          <button onclick="calc(1)">1</button> 
+          <button onclick="calc(2)">2</button> 
+          <button onclick="calc(3)">3</button> 
+          <button onclick="calc(' + ')">+</button> 
+          <button>=</button>
+        </section>
+        <h3>5q. When we click the '=' button, use the code: eval(calculation); <br>(eval(...) converts the calculation string into actual math)</h3>
+        <ul>
+          <li>Save the result back in 'calculation': calculation = eval(calculation);</li>
+          <li>Dispaly the result in the console: console.log(calculation);</li>
+        </ul>
+        <section class="prj-1">
+          <button onclick="calc(1)">1</button> 
+          <button onclick="calc(2)">2</button> 
+          <button onclick="calc(3)">3</button> 
+          <button onclick="calc(' + ')">+</button> 
+          <button onclick="total()">=</button>
+        </section>
+        <h3>5r. Create the rest of the buttons in the calculator. To create multiple rows of buttons, put the buttons inside p tag elements like this:</h3>
+        <pre class="gray">
+          Skipped
+        </pre>
+      </div>
+    </main>
+    <footer>
+      <p>Copy Right</p>
+    </footer>
+
+    <script>
+      let quantity = 0;
+
+      function showQuantity() {
+        console.log(`Cart quantity: ${quantity}`)
+      }
+
+      function addCart(num) {
+        quantity += num;
+        showQuantity();
+      }
+
+      function resetCart() {
+        quantity = 0;
+        console.log("Cart was reset.")
+        showQuantity();
+      }
+
+      function removeCart(num) {
+        if (num === undefined) {
+        quantity--;
+        showQuantity();
+        } else {
+          quantity -= num;
+          showQuantity();
+        }
+      }
+
+      // Calculator Exercise
+
+      let calculation = "";
+
+      function calc(num) {
+        calculation += num;
+        console.log(calculation);
+      }
+
+      function total() {
+        calculation = eval(calculation);
+        console.log(calculation);
+      }
+
+
+
+
+
+    </script>
+  </body>
+
+
+
+</html>
