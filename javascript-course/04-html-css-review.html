@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSimpleDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>SuperSimpleDev<span>- HTML CSS Review, console.log -</span></h1>
+    </header>
+    <main>
+      <aside>
+        <ul>
+          <li>HTML = creates the content</li>
+          <li>CSS = changes the appearance</li>
+          <li>JavaScript = Makes it interactive</li>
+        </ul>
+        <h2>HTML</h2>
+        <ul>
+          <li>Hyper Text Markup Language</li>
+          <li>Giving instruction to a computer</li>
+        </ul>
+        <h2>CSS</h2>
+        <ul>
+          <li>Cascading Style Sheets</li>
+          <li>Changes the appearance of the site</li>
+        </ul>
+        <h2>Comments</h2>
+        <ul>
+          <li>Pieces of code that the computer ignores</li>
+          <li>Gives information</li>
+        </ul>
+      </aside>
+      <div id="main-col">
+        <h2>Lesson 4 Execises</h2>
+        <h3>4a. Create a button with the text 'Click' inside</h3>
+        <pre class="gray">
+          <button>Click</button>
+        </pre>
+        <h3>4b. Create 2 buttons. 1 with your name and 1 with your favorite food.</h3>
+        <pre class="gray">
+          <button>Swab</button> 
+          <button>Spicy Chicken</button>
+        </pre>
+        <h3>Create a paragraph with the text 'Hello, world!' inside.</h3>
+        <pre class="gray">
+          <p>Hello, world!</p>
+        </pre>
+        <h3>4d. Continuing from exercise 4c, create a paragraph below the previous paragraph and write something you did today</h3>
+        <pre>
+          Hello, world!
+
+          Today I went to the grocery store to buy some eggs and vegetables.
+        </pre>
+        <pre class="gray">
+          <p>Hello, world! Today I'm studying JavaScript</p>
+        </pre>
+        <h3>4e. Create 2 buttons 'Add to cart' and 'Buy now'. Use CSS to give them yellow and orange background colors:</h3>
+        <pre class="gray">
+          <button style="background-color: yellow;">Add to cart</button> <button style="background-color: orange;">Buy now</button>
+        </pre>
+        <h3>Add the HTML structure to exercise 4e add html tags and put the elemements in the head and body tag</h3>
+        <pre class="gray">
+          Skipped
+        </pre>
+        <h3>4g. Continuing from 4f, change the title at the top of the tab to 'Buttons'</h3>
+        <pre class="gray">
+          <code>
+            &lt;title&gt;Buttons&lt;/title&gt;
+          </code>
+        </pre>
+        <h3>4h. Continuing from 4g, add a script element so that when the page loads, it displays the message 'Welcome!' in the Console</h3>
+        <pre class="gray">
+          console.log(Welcome!);
+        </pre>
+
+        <h2>Challenge Exercises</h2>
+        <h3>Using HTML and CSS, try to copy the design on the right<br>(Make sure to follow the HTML structure.)</h3>
+
+          <p>Adults Plain Cotton T-shirt</p>
+          <p>Price: $7.99</p>
+
+          <button style="background-color: yellow; padding: 5px 10px;">Add to cart</button> <button style="background-color: orange; padding: 5px 10px; margin-bottom: 40px">Buy now</button>
+        <h3>Continuing 4i, add onclick="..." attributes to the two buttons:</h3>
+        <ul>
+          <li>When clicking 'Add to cart', create a popup with the text 'Added'</li>
+          <li>When clicking 'But now', display the message 'Loading...' in the Console, and then create a popup with the text 'Purchased'</li>
+        </ul>
+          <p>Adults Plain Cotton T-shirt</p>
+          <p>Price: $7.99</p>
+
+          <button style="background-color: yellow; padding: 5px 10px;" onclick="alert('Added')">Add to cart</button> <button style="background-color: orange; padding: 5px 10px; margin-bottom: 40px" onclick="
+            console.log('Loading...');
+            alert('Purchased.');
+          
+          ">Buy now</button>
+
+      </div>
+    </main>
+    <footer>
+      <p>Copy Right</p>
+    </footer>
+
+
+
+
+  </body>
+
+
+
+</html>

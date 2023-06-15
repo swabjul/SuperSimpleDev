@@ -1,0 +1,71 @@
+* {
+ margin: 0;
+ padding: 0; 
+}
+
+body {
+  font-family: 'Indie Flower', cursive;
+  position: relative;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 10px;
+  height: 60px
+}
+
+header h1 {
+  font-size: 40px;
+}
+header h1 span{
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+main {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 10px;
+}
+aside {
+  border-right: 1px solid #ccc;
+  padding: 20px 10px;
+  width: 25%;
+}
+
+aside ul, main ul{
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+#main-col {
+  padding: 20px 20px;
+}
+
+#main-col h2{
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding:20px 0;
+  width: 100%;
+  height: 40px;
+}
+
+footer p {
+  text-align: center;
+}
+
+
+pre.gray {
+  color: #ccc; margin-bottom: 40px
+}
+
+#main-col section {
+  margin-bottom: 40px;
+}
+#main-col section.rps-1 button {
+  padding: 2px 10px;
+}
