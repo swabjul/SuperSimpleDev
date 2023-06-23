@@ -1,17 +1,34 @@
 
+const guessScore = JSON.parse(localStorage.getItem("guessScore")) || {
+  wins: 0,
+  lose: 0
+};
 
 
+function playGame2(guess) {
+  let randomFlipCoin = randomFlip();
+  let result = "";
 
-let range = 5;
-let start = 1;
+  if (guess === randomFlipCoin) {
+    result = "You Win!";
+    guessScore.wins++
+  } else {
+    result = "You Lose!"
+    guessScore.lose++
+  }
 
-// // 0 to range
-// const r = Math.floor(Math.random() * range);
+  localStorage.setItem("guessScore", JSON.stringify(guessScore));
 
-// // // inbetween
-const r = Math.floor(Math.random() * (range - start) + start);
+  alert(`You guess: ${guess}. Coin result: ${randomFlipCoin}. ${result}
+Wins: ${guessScore.wins}, Losses: ${guessScore.lose};
+  
+  `);
+}
 
-// start and range included
-// const r = Math.floor(Math.random() * (range - start + 1) + start);
+function randomFlip() {
+  const randomNumber = Math.random();
+  let move = "";
+  randomNumber > 1/2 ? move = "heads" : move = "tails";
+  return move;
 
-console.log(r);
+}
