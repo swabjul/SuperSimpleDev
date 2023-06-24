@@ -64,17 +64,28 @@
           <li>undefined</li>
           <li>null</li>
         </ul>
+        <h2>Shortcuts for If-Statements</h2>
+        <ul>
+          <li>Ternary Operator ?:</li>
+          <li>Guard Operator &&</li>
+          <li>Default Operator ||</li>
+        </ul>
         <h2>Ternary Operator</h2>
         <ul>
           <li>condition ? exprIfTrue : exprIfFalse</li>
           <li>We can the ternary operator in a variable</li>
         </ul>
-        <h2>aaaaaaaaaaaaaaaaaaa</h2>
+        <h2>Guard operator</h2>
         <ul>
-          <li>aaaaaaaaaaaaaaa</li>
-          <li>aaaaaaaaaaaaaaa</li>
+          <li>This is the same as AND operator but can be assigned in a variable</li>
+          <li>const var = true && statement;</li>
         </ul>
-
+        <h2>Default Operator</h2>
+        <ul>
+          <li>This is the same as OR operator but can be assigned in a variable</li>
+          <li>const currency = undefined || 'USD'</li>
+          <li>We can use or operator for default value</li>
+        </ul>
 
       </aside>
       <div id="main-col">
@@ -85,10 +96,161 @@
           <button onclick="playGame('paper')">Paper</button> 
           <button onclick="playGame('scissors')">Scissors</button> 
         </section>
+        <h2>Lesson 6 Execises</h2>
+        <h3>6a. Create a variable called 'hour' and save the current hour of the day<br>(use 24-hour format and save it as a number between 0 and 23)</h3>
+        <ul>
+          <li>If hour is between 6 and 12, display 'Good morning!' in the console</li>
+          <li>If hour is between 13 and 17, display 'Good afternoon!' in the console</li>
+          <li>Otherwise, display 'Good night!' in the console</li>
+        </ul>
+        <pre class="gray">
+          const hour = 13;
+
+          if (hour >= 6 && hour < 13) {
+            console.log("Good morning!");
+          } else if (hour >= 13 && hour < 17) {
+            console.log("Good afternoon!");
+          } else {
+            console.log("Good night!");
+          }
+
+          // Good afternoon!
+        </pre>
+        <h3>6b. Continuing from 6a, try changing the value in the 'hour' variable to make it display different messages</h3>
+        <pre class="gray">
+          const hour = 18;
+
+          if (hour >= 6 && hour < 13) {
+            console.log("Good morning!");
+          } else if (hour >= 13 && hour < 17) {
+            console.log("Good afternoon!");
+          } else {
+            console.log("Good night!");
+          }
+
+          // Good night!
+        </pre>
+        <h3>6c. Continuing 6a, create a variable called 'name' and save your name inside (as a string). Update the if-statement to display your name in each message. For example: 'Good morning ${name}!'</h3>
+        <pre class="gray">
+          const hour = 13;
+          let name = "Swab";
+
+          if (hour >= 6 && hour < 13) {
+            console.log(`Good morning ${name}!`);
+          } else if (hour >= 13 && hour < 17) {
+            console.log(`Good afternoon ${name}!`);
+          } else {
+            console.log(`Good night ${name}!`);
+          }
+
+          // Good afternoon Swab!
+        </pre>
+        <h3>6d. Imagine an amusement park that has a discount for children (6 years and younger) or seniors (65 years and older)</h3>
+        <ul>
+          <li>Create a variable 'age' and save a person's age inside.</li>
+          <li>Create and if-statement that checks if the peroson qualifies for a discount. If they do, dispaly 'Discount' in the console. Otherwise, display 'No discount' in the console.<br><ul>Note:</ul> try to the || operator in your solution</li>
+          <li>Try changing the 'age' variable to dispaly different messages</li>
+        </ul>
+        <pre class="gray">
+          const age = 18;
+
+          if (age <= 6 || age >= 65) {
+            console.log("Discount");
+          } else {
+            console.log("No discount");
+          }
+
+          // No discount
+        </pre>
+        <h3>6e. Continuing from exercise 6d, let's say the discount is only available if it is not a holiday. Create a variable:<br>const isHoiday = true;</h3>
+        <ul>
+          <li>Update the code sos that in order to get a discount, people must meet the age requirement and it is also not a holiday.</li>
+          <li>Note: && has a higher priority than || so you may need to use brackets () to control which code gets done first</li>
+          <li>Try changing the value of isHoliday to display different messages</li>
+        </ul>
+        <pre class="gray">
+          const age = 5;
+          const isHoliday = true;
 
 
+          if (isHoliday === false && (age <= 6 || age >= 65)) {
+            console.log("Discount");
+          } else {
+            console.log("No discount");
+          }
+
+          // No discount
+        </pre>
+        <h2>We'll create a coin-flip game</h2>
+        <h3>6f. Generate a random number with Math.random(). Save it in a variable.</h3>
+        <pre class="gray">
+          const randomNumber = Math.random();
+        </pre>
+        <h3>6g. Create an if-statement and check:</h3>
+        <ul>
+          <li>If the number is less than 0.5, then display 'heads' in the console.</li>
+          <li>Else display 'tails' in the console</li>
+        </ul>
+        <pre class="gray">
+          const randomNumber = Math.random();
+
+          if (randomNumber < 1/2) {
+            console.log("heads");
+          } else {
+            console.log("tails");
+          }
+        </pre>
+        <h3>6h. Instead of display 'heads' or 'tails' in the console, save the result in a variable called 'result'</h3>
+        <pre class="gray">
+          const randomNumber = Math.random();
+          let result = "";
+
+          if (randomNumber < 1/2) {
+            result = "heads";
+          } else {
+            result = "tails";
+          }
+        </pre>
+        <h3>6j. Let's say we're trying to guess the result. Create a variable called 'guess' and save your guess ('guess' or 'tails')</h3>
+        <ul>
+          <li>If your guess matches the result, diplay 'You win!' in the console</li>
+          <li>If your guess does not match the result, display 'You lose'</li>
+        </ul>
+        <pre class="gray">
+          const randomNumber = Math.random();
+          let result = "";
+          const guess = "heads";
+
+          if (randomNumber < 1/2) {
+            result = "heads";
+          } else {
+            result = "tails";
+          }
+
+          if (guess === result) {
+            console.log("You win!");
+          } else {
+            console.log("You lose!");
+          }
+        </pre>
+        <h3>(Challenge) Instead of using if-statements in the previous exercises, try switching them into ternary operators (condition ? A : B).</h3>
+        <pre class="gray">
+          const randomNumber = Math.random();
+          let result = "";
+          const guess = "heads";
+
+          randomNumber < 1/2 ? result = "heads" : result = "tails";
+          guess === result ? console.log("You win!") : console.log("You lose!");
+        </pre>
+        <h2>Challenge Exercises</h2>
 
 
+        <h3><u><strong>Setup:</strong></u> we'll improve the Cart Quantity project. First, make a copy of the project from exercise 5k</h3>
+        <h3>Let's say the cart has a maximum quantity of 10. Before updating the quantity, check if the quantity will be greater than 10:</h3>
+        <ul>
+          <li>If it will, display a popup saying 'The cart is full' and don't update the quantity</li>
+          <li>Otherwise, update the quantity and console.log() it as usual</li>
+        </ul>
 
         <section class="prj-1">
           <h3>Cart Quantity</h3>
@@ -96,82 +258,31 @@
           <button onclick="addCart(1)">Add to Cart</button> 
           <button onclick="addCart(2)">+2</button> 
           <button onclick="addCart(3)">+3</button> 
+          <button onclick="addCart(4)">+4</button> 
+          <button onclick="addCart(5)">+5</button> 
           <button onclick="resetCart()">Reset Cart</button> 
+          <button onclick="removeCart(1)">Remove from Cart</button>
+          <button onclick="removeCart(2)">-2</button>
+          <button onclick="removeCart(3)">-3</button>
         </section>
-        <h2>Lesson 6 Execises</h2>
-        <h3>5a. Create a script element. Inside the script, create a variable called 'name', and save your name in this variable (as a string).</h3>
-        <pre class="gray">
-          const name = swab;
-        </pre>
-        <h3>5b. Continuing from 5a, siplay the message 'My name is:${name}' in the console (insert the 'name' variable created in 5a into this message)</h3>
-        <pre class="gray">
-          const name = "Swab";
-
-          console.log(`My name is:${name}`);
-        </pre>
-        <h3>5c. At a restaurant, you order 1 coffee ($5), 2 bagels ($3 each), and 1 soup ($9). Calculate the cost and save it in a variable called 'cost'</h3>
-        <pre class="gray">
-          const coffee = 5;
-          const bagel = 3;
-          const soup = 9;
-
-          let cost = coffee + (bagel * 2) + soup;
-        </pre>
-        <h3>5d. Continuing from 5c, display 'Cost of food: $${cost}' in the console.</h3>
-        <pre class="gray">
-          const coffee = 5;
-          const bagel = 3;
-          const soup = 9;
-
-          let cost = coffee + (bagel * 2) + soup;
-
-          console.log(`Cost of food:$${cost}`);
-        </pre>
-        <h3>5e. Let's say the restaurant charges a 10% tax. Using the 'cost' variable from 5c, calculate the tax (hint: multiply by 0.1), and save the result in a variable</h3>
-        <pre class="gray">
-          const coffee = 5;
-          const bagel = 3;
-          const soup = 9;
-
-          let cost = coffee + (bagel * 2) + soup;
-          let tax = cost * .1;
-
-          console.log(`Cost of food:$${cost}`);
-          console.log(`Tax (10%): $${tax}`);
-        </pre>
-        <h3>5f. Continuing from 5e, display 'Tax (10%): $${tax}' in the console.</h3>
-        <pre class="gray">
-          const coffee = 5;
-          const bagel = 3;
-          const soup = 9;
-
-          let cost = coffee + (bagel * 2) + soup;
-          let tax = cost * .1;
-          let totalCost = cost + tax;
-
-          console.log(`Cost of food:$${cost}`);
-          console.log(`Tax (10%): $${tax}`);
-        </pre>
-        <h3>5g. Continuing from 5f, calculate the total (cost + tax), save it in a variable callec 'totalCost', and display the message 'Total cost: $${totalCost}' in the console.</h3>
-        <pre class="gray">
-          const coffee = 5;
-          const bagel = 3;
-          const soup = 9;
-
-          let cost = coffee + (bagel * 2) + soup;
-          let tax = cost * .1;
-          let totalCost = cost + tax;
-
-          console.log(`Cost of food:$${cost}`);
-          console.log(`Tax (10%): $${tax}`);
-          console.log(`Total cost: $${totalCost}`);
-        </pre>
-        <h3>5h. In the Cart Quantity Project, add 2 more buttons '+4' and '+5', which increase the quantity by 4 and 5 when you click them. Try using +=</h3>
-
-        <h3>5r. Create the rest of the buttons in the calculator. To create multiple rows of buttons, put the buttons inside p tag elements like this:</h3>
-        <pre class="gray">
-          Skipped
-        </pre>
+        <h3>In exercises 5i-5k, we created the 'Remove cart', '-2', '-3' buttons. Before updating the quantity, check if it will go below 0:</h3>
+        <ul>
+          <li>If it will, create a popup saying 'Not enought items in the cart' and don't update the quantity.</li>
+          <li>Otherwise, update the quantity and console.log() it as usual</li>
+        </ul>
+        <section class="prj-1">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="addCart(1)">Add to Cart</button> 
+          <button onclick="addCart(2)">+2</button> 
+          <button onclick="addCart(3)">+3</button> 
+          <button onclick="addCart(4)">+4</button> 
+          <button onclick="addCart(5)">+5</button> 
+          <button onclick="resetCart()">Reset Cart</button> 
+          <button onclick="removeCart(1)">Remove from Cart</button>
+          <button onclick="removeCart(2)">-2</button>
+          <button onclick="removeCart(3)">-3</button>
+        </section>
       </div>
     </main>
     <footer>
@@ -179,6 +290,7 @@
     </footer>
 
     <script>
+      // Start Rock Papar Scissors
       function playGame(move) {
 
         let computerMove = randomMove();
@@ -212,8 +324,43 @@
           return "scissors";
         }
       }
+      // End Rock Paper Scissors
 
 
+      // Star Cart Quantity
+      let quantity = 0;
+
+      function showQuantity() {
+        console.log(`Cart quantity: ${quantity}`)
+      }
+
+      function addCart(num) {
+        const isMax = (quantity + num) > 10 && true;
+
+        if (isMax) {
+          alert("The cart is full");
+        } else {
+          quantity += num;
+          showQuantity();
+        }
+      }
+
+      function resetCart() {
+        quantity = 0;
+        console.log("Cart was reset.")
+        showQuantity();
+      }
+
+      function removeCart(num) {
+        const isMin = (quantity - num) < 0 && true;
+
+        if (isMin) {
+          alert("Not enough items in the cart");
+        } else {
+          quantity -= num;
+          showQuantity();
+        }
+      }
     </script>
   </body>
 

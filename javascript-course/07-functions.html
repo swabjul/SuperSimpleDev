@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSimpleDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <style>
+      .prj-1 button {
+        width: 50px;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+
+      .prj-2 button  {
+        padding: 5px 10px;
+
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <header>
+      <h1>SuperSimpleDev<span>- Functions -</span></h1>
+    </header>
+    <main>
+      <aside>
+        <h2>What is function?</h2>
+        <ul>
+          <li>A function lets is reuse code</li>
+          <li>Function creates scope</li>
+          <li>Function makes it easier to read</li>
+        </ul>
+        <h2>Rules for function names:</h2>
+        <ul>
+          <li>Can't use special words<br>Example: function</li>
+          <li>Can't start with a number</li>
+          <li>Can't use special characters Except: $ and _</li>
+          <li>Best practice is to use camelCase for function names</li>
+        </ul>
+
+        <h2>Best Practice of creating function</h2>
+        <ul>
+          <li>Use camelCase for function names</li>
+          <li>Use a verb/action at the beginning of function name</li>
+          <li>Keep variable inside a scope and use return value</li>
+        </ul>
+      </aside>
+      <div id="main-col">
+        <h2>Lesson 7 Project</h2>
+        <section class="rps-1">
+          <h3>Rock Paper Scissors</h3>
+          <button onclick="playGame('rock')">Rock</button> 
+          <button onclick="playGame('paper')">Paper</button> 
+          <button onclick="playGame('scissors')">Scissors</button> 
+        </section>
+        <h2>Lesson 7 Execises</h2>
+        <h3>7.a Create a function called 'greet' that display the message 'Hello!' in the console. Call/run this function a few times using: greet();</h3>
+        <pre class="gray">
+          function greet() {
+            console.log("Hello!")
+          }
+          
+          greet();
+
+          // Hello!
+        </pre>
+        <h3>7b. Continuing from 7a. add a parameter called 'name' to the 'greet' function and display the message: 'Hello ${name}!'<br>Call the function a few times with different names: greet('Simon');</h3>
+        <pre class="gray">
+          function greet(name) {
+            console.log(`Hello ${name}!`)
+          }
+          
+          greet("Simon");
+          greet("Swab");
+
+          // Hello Simon!
+          // Hello Swab!
+        </pre>
+        <h3>Try calling greet() without a name (it will display 'Hello undefined!').<br> Modify the function so that if 'name' is undefined, it will display 'Hi there!' instead<br>(Hint: use and if-statement. Since undefined is a falsy value, you can use: if (!name) {...} to check if 'name' is undefined)</h3>
+        <pre class="gray">
+          function greet(name) {
+            if (!name) {
+              console.log("Hi there!");
+              return;
+            }
+            console.log(`Hello ${name}!`)
+          }
+          
+          greet();
+          greet("Simon");
+          greet("Swab");
+
+          // Hi there!
+          // Hello Simon!
+          // Hello Swab!
+        </pre>
+        <h3>7d. Create a function 'convertToFahrenheit(celsius)' that takes a number in degrees Celsius and returns a number in degrees Fahrenheit.</h3>
+        <ul>
+          <li>Formula: Fahrenheit = (Celsius * 9/5) + 32 </li>
+          <li>convertToFahrenheit(25) => 77</li>
+        </ul>
+        <pre class="gray">
+          function covertToFahrenheit(celsius) {
+            return (celsius * 9/5) + 32;
+          }
+          
+          console.log(covertToFahrenheit(25));
+
+          // 77
+        </pre>
+        <h3>Create a function 'convertToCelsius(fahrenheit)' that takes a number in degrees Fahrenheit and returns a number in degrees Celsius</h3>
+        <ul>
+          <li>Formula: Celsius = (Fahrenheit - 32) * 5/9</li>
+          <li>convertToCelsius(86) => 30</li>
+        </ul>
+        <pre class="gray">
+          function convertToCelsius(fahrenheit) {
+            return (fahrenheit - 32) * 5/9
+          }
+          
+          console.log(convertToCelsius(86));
+
+          // 30
+        </pre>
+        <h3>Create a function 'convertTemperature(degrees, unit)' that takes a number and a unit ('C' or 'F'), and converts it into the other unit.</h3>
+        <ul>
+          <li>convertTemperature(25, 'C') => '77F'</li>
+          <li>convertTemperature(86, 'F') => '30C'</li>
+        </ul>
+        <p>Note: return a string, and try to reuse the function from 7d and 7e.</p>
+        <pre class="gray">
+          function covertToFahrenheit(celsius) {
+            return ((celsius * 9/5) + 32);
+          }
+          
+          function convertToCelsius(fahrenheit) {
+            return ((fahrenheit - 32) * 5/9);
+          }
+          
+          function convertTemperature(degrees, unit) {
+          
+            if (unit === "C") {
+              const fahrenheit = covertToFahrenheit(degrees);
+              return fahrenheit + "F";
+          
+            } else if (unit === "F") {
+              const celsius = convertToCelsius(degrees);
+              return celsius + "C";
+            }
+          }
+          
+          console.log(convertTemperature(25, "C"));
+          console.log(convertTemperature(86, "F"));
+
+          // 77F
+          // 30C
+        </pre>
+
+        <h2>Challenge Exercises</h2>
+        <h3>7g. Create a copy of the Calculator project from exercise 5r (if you didn't do 5r, copy the code for 5r from the solutions)</h3>
+        <ul>
+          <li>Notice there's a lot of duplicated code in the buttons.</li>
+          <li>Create a function 'updateCalculator' and reuse the code</li>
+        </ul>
+        <section class="prj-1">
+          <p>
+            <button onclick="updateCalculation(1)">1</button> 
+            <button onclick="updateCalculation(2)">2</button> 
+            <button onclick="updateCalculation(3)">3</button> 
+          </p>
+          <p>
+            <button onclick="updateCalculation(4)">4</button> 
+            <button onclick="updateCalculation(5)">5</button> 
+            <button onclick="updateCalculation(6)">6</button>
+          </p>
+          <p>
+            <button onclick="updateCalculation(7)">7</button> 
+            <button onclick="updateCalculation(8)">8</button> 
+            <button onclick="updateCalculation(9)">9</button>
+          </p>
+          <p>
+            <button onclick="updateCalculation(0)">0</button> 
+            <button onclick="updateCalculation(' + ')">+</button> 
+            <button onclick="updateCalculation(' - ')">-</button> 
+          <p>
+          <p>
+            <button onclick="updateCalculation(' * ')">*</button> 
+            <button onclick="updateCalculation(' / ')">/</button> 
+            <button onclick="total()">=</button>
+          </p>
+          <p>
+            <button onclick="clearCalc()">clear</button>
+          </p>
+          
+        </section>
+        <h3>7h. Create a copy of the Cart Quantity project from exercise 6l,</h3>
+        <ul>
+          <li>Create a function 'updateCartQuantity' and reuse the code</li>
+        </ul>
+        <h3>7i. Modify 'updateCartQuantity' from 7h so that if the quantity is invalid, alert(); and then return; (this is called an early return). An early return make our code cleaner because we can remove the 'else-if' / 'else'</h3>
+        <section class="prj-2">
+          <h3>Cart Quantity</h3>
+          <button onclick="showQuantity();">Show Quantity</button> 
+          <button onclick="updateCartQuantity(1)">Add to Cart</button> 
+          <button onclick="updateCartQuantity(2)">+2</button> 
+          <button onclick="updateCartQuantity(3)">+3</button> 
+          <button onclick="updateCartQuantity(4)">+4</button> 
+          <button onclick="updateCartQuantity(5)">+5</button> 
+          <button onclick="updateCartQuantity()">Reset Cart</button> 
+          <button onclick="updateCartQuantity(-1)">Remove from Cart</button>
+          <button onclick="updateCartQuantity(-2)">-2</button>
+          <button onclick="updateCartQuantity(-3)">-3</button>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <p>Copy Right</p>
+    </footer>
+
+    <script>
+
+      // Start Rock Papar Scissors
+      function playGame(move) {
+        const computerMove = setRandomMove();
+        let result = "";
+
+        if (move === "rock" && computerMove === "scissors" ||
+            move === "paper" && computerMove === "rock" ||
+            move === "scissors" && computerMove === "paper") {
+          result = "You win!"
+        } else if (move === computerMove) {
+          result = "It's a tie!"
+        } else {
+          result = "You lose!"
+        }
+
+        alert(`You picked ${move}. Computer picked ${computerMove}. ${result}`);
+
+      }
+
+      function setRandomMove() {
+        const randomNumber = Math.random();
+
+        if (randomNumber >= 0 && randomNumber < 1/3) {
+          return "rock";
+        } else if (randomNumber >= 1/3 && randomNumber < 2/3) {
+          return "paper";
+        } else {
+          return "scissors"
+        }
+
+      }
+      // End Rock Paper Scissors
+
+
+      //Start 7g Challenge Exercise
+      let calculation = "";
+
+      function updateCalculation(num) {
+        calculation += num
+        console.log(calculation);
+      }
+
+      function total() {
+        calculation = eval(calculation).toString();
+        console.log(calculation);
+      }
+
+      function clearCalc() {
+        calculation = "";
+        console.log(calculation);
+
+      }
+
+      //End 7g Challenge Exercise
+
+      // Start 7h - 7i Challenge Exercise
+      let quantity = 0;
+
+      function updateCartQuantity(num) {
+
+        if (!num) {
+          quantity = 0;
+          showQuantity()
+          return;
+        }
+
+        if (num > 0) {
+          return addCart(num);
+        } else {
+          return removeCart(num);
+        }
+
+      }
+
+
+      function showQuantity() {
+        console.log(`Cart quantity: ${quantity}`)
+      }
+
+      function addCart(num) {
+        const isMax = (quantity + (num)) > 10 && true;
+
+        if (isMax) {
+          alert("The cart is full");
+          return;
+        }
+
+        quantity += num;
+        showQuantity()
+      }
+
+      function removeCart(num) {
+        const isMin = (quantity + num) < 0 && true;
+
+        if (isMin) {
+          alert("Not enough items in the cart");
+          return;
+        }
+
+        quantity += num;
+        showQuantity()
+      }
+
+    </script>
+  </body>
+
+
+
+</html>

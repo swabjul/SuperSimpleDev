@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSimpleDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <style>
+      .prj-1 button {
+        width: 50px;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+
+      .prj-2 button  {
+        padding: 5px 10px;
+
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <header>
+      <h1>SuperSimpleDev<span>- Objects -</span></h1>
+    </header>
+    <main>
+      <aside>
+        <h2>What is an object</h2>
+        <ul>
+          <li>An object groups multiple values together</li>
+        </ul>
+        <h2>Dot Notation</h2>
+        <ul>
+          <li>Object.property</li>
+        </ul>
+        <h2>Why we use objects</h2>
+        <ul>
+          <li>Makes our code more organized</li>
+        </ul>
+        <h2>Ways of calling value of object</h2>
+        <ul>
+          <li>Dot Notation</li>
+          <li>Bracket Notation - lets us use properties that don't work with dot notation</li>
+        </ul>
+        <h2>Function inside object</h2>
+        <ul>
+          <li>This is called method</li>
+        </ul>
+        <h2>JSON Built-in Object</h2>
+        <ul>
+          <li>Help us work with JSON</li>
+          <li>Javascript Object Notation</li>
+          <li>similar to JS Object but with less features</li>
+        </ul>
+        <h2>We use JSON</h2>
+        <ul>
+          <li>When we send data between computers</li>
+          <li>when we store data</li>
+        </ul>
+        <h2>Built-in JSON Object</h2>
+        <ul>
+          <li>Javascript Object => JSON (JSON.stringify();)</li>
+          <li>JSON => Javascript Object (JSON.parse();)</li>
+        </ul>
+        <h2>localStorage</h2>
+        <ul>
+          <li>Save values permanently</li>
+          <li>localStorage.setItem();</li>
+          <li>localStorage.getItem();</li>
+          <li>localStorage.removeItem();</li>
+        </ul>
+        <h2>Auto-boxing</h2>
+        <ul>
+          <li>Javascript automatically wrap ang string,numbers and booleans into an object like a box</li>
+          <li>Auto-boxing doesn't work with null and undefined result in error</li>
+        </ul>
+        <h2>Objects are references</h2>
+        <h2>Shortcuts for property/h2>
+        <ul>
+          <li>Destructuring Shortcut</li>
+          <li>Shorthand Property</li>
+          <li>Shorthand Method</li>
+        </ul>
+
+        <h2>Destructuring Shortcut</h2>
+        <ul>
+          <li>Easier way to take properties out of an object and can take out multiple properties</li>
+          <li>const message = object.message<br> const {message} = object;</li>
+        </ul>
+        <h2>Shorthand Property</h2>
+        <ul>
+          <li>message: message = message</li>
+        </ul>
+        <h2>Shorthand Method</h2>
+        <ul>
+          <li>function () {...}</li>
+        </ul>
+      </aside>
+      <div id="main-col">
+        <h2>Lesson 8 Project</h2>
+        <section class="rps-1">
+          <h3>Rock Paper Scissors</h3>
+          <button onclick="playGame('rock')">Rock</button> 
+          <button onclick="playGame('paper')">Paper</button> 
+          <button onclick="playGame('scissors')">Scissors</button> 
+          <button onclick="resetGame()">Reset game</button> 
+        </section>
+        <h2>Lesson 8 Execises</h2>
+        <h3>8a. Let's say in the Amazon project, we have a bastketball product. This product has name of 'basketball', a price of 2095. Create an object to represent this product and display it in the console.</h3>
+        <pre class="gray">
+          const product = {
+            name: "basketball",
+            price: 2095
+          }
+          
+          console.log(product);
+
+          // {name: 'basketball', price: 2095}
+        </pre>
+        <h3>8b. Continuing from 8a, let's say we want to increase the price by 500 cents. Use dont notation to increase the price, and display the updated object in the console.</h3>
+        <pre class="gray">
+          const product = {
+            name: "basketball",
+            price: 2095
+          }
+          
+          product.price += 500;
+          
+          
+          console.log(product.price);
+
+          // 2595
+        </pre>
+        <h3>8c. Using bracket notation, add a property 'delivery-time' to the object with the value '3 days'. Dispaly the updated object in the console.</h3>
+        <pre class="gray">
+          const product = {
+            name: "basketball",
+            price: 2095
+          }
+          
+          product.price += 500;
+          product["delivery-time"] = "3 days";
+          
+          console.log(product);
+
+          // {name: 'basketball', price: 2595, delivery-time: '3 days'}
+        </pre>
+        <h3>8d. Create a function 'comparePrice(product1, product2)', which takes 2 prodcuts (with 'name' and 'price' properties) and return the products that is less expensive. Create 2 products and try out the function.</h3>
+        <pre class="gray">
+          const product1 = {
+            name: "basketball",
+            price: 250,
+          }
+          
+          const product2 = {
+            name: "football",
+            price: 250,
+          }
+          
+          function comparePrice(product1, product2) {
+          
+            if (product1.price < product2.price) {
+              return product1;
+            } else {
+              return product2;
+            }
+          }
+          
+          console.log(comparePrice(product1, product2))
+
+          // {name: 'football', price: 250}
+        </pre>
+        <h3>8e, Create a function 'isSameProduct(product1, product2)', which returens true if 2 products have the same values inside ('name' and 'price').<br>If not, return false. Create 2 products and try out the function.<br>(Hint: objects are references so you can't compare them directly)</h3>
+        <pre class="gray">
+          const product1 = {
+            name: "basketball",
+            price: 200,
+          
+          }
+          
+          const product2= {
+            name: "football",
+            price: 200,
+          }
+          
+          const product3= {
+            name: "tennis",
+            price: 200,
+          }
+          const product4= {
+            name: "tennis",
+            price: 200,
+          }
+          
+          function isSameProduct(product1, product2) {
+            if (product1.name !== product2.name) {
+              return false;
+            }
+            if (product1.price !== product2.price) {
+              return false;
+            }
+            return true;
+          }
+          
+          console.log(isSameProduct(product1, product2));
+          console.log(isSameProduct(product3, product4));
+
+          // false
+          // true
+        </pre>
+        <h3>8f. Using Google or an A.I tool, search how to convert a string to all lowercase with Javascript ('Good Morning' => 'good morning')</h3>
+        <pre class="gray">
+          console.log('Good Morning'.toLowerCase());
+        </pre>
+        <h3>8g. Search how to repeat a string many times ('test' 2 times = 'testtest')</h3>
+        <pre class="gray">
+          console.log("Good Morning".repeat(2))
+
+          // Good MorningGood Morning
+        </pre>
+        <h3>8h. We'll add localStorage to the calcuclator project. First, make a copy of the project from exercise 7g (see the solution for the 7g if needed)</h3>
+        <ul>
+          <li>Whenever we update the calculation, save it suing .setItem()</li>
+          <li>When the page is load, get calculation using .getItem()</li>
+          <li>use a default value of '' if a calculation doesn't exist in local storage</li>
+        </ul>
+        <section class="prj-1">
+          <p>
+            <button onclick="updateCalculation(1)">1</button> 
+            <button onclick="updateCalculation(2)">2</button> 
+            <button onclick="updateCalculation(3)">3</button> 
+          </p>
+          <p>
+            <button onclick="updateCalculation(4)">4</button> 
+            <button onclick="updateCalculation(5)">5</button> 
+            <button onclick="updateCalculation(6)">6</button>
+          </p>
+          <p>
+            <button onclick="updateCalculation(7)">7</button> 
+            <button onclick="updateCalculation(8)">8</button> 
+            <button onclick="updateCalculation(9)">9</button>
+          </p>
+          <p>
+            <button onclick="updateCalculation(0)">0</button> 
+            <button onclick="updateCalculation(' + ')">+</button> 
+            <button onclick="updateCalculation(' - ')">-</button> 
+          <p>
+          <p>
+            <button onclick="updateCalculation(' * ')">*</button> 
+            <button onclick="updateCalculation(' / ')">/</button> 
+            <button onclick="total()">=</button>
+          </p>
+          <p>
+            <button onclick="clearCalc()">clear</button>
+          </p>
+          
+        </section>
+        <h2>Challenge Exercises</h2>
+        
+        <h3>8i. We'll improve the coin flip game from exercise 6j to be like the rock paper scissors game.</h3>
+        <ul>
+          <li>Copy the code from exercise 6j (see the solution for 6j if need)</li>
+          <li>Create 2 buttons to play the game</li>
+          <li>When clicking 'heads' play the game with guess='heads'.</li>
+          <li>When clcking 'tails' play the game with guess='tails'.</li>
+          <li>Create a function 'playGame(guess)' to reuse the code.</li>
+        </ul>
+        <section class="prj-2">
+          <button onclick="playGame2('heads')">Heads</button>
+          <button onclick="playGame2('tails')">Tails</button>
+        </section>
+
+
+
+
+        <h3>Create a score object {wins: 0, losses: 0}, update the score each time after playing, and display the score in the console.</h3>
+        <h3>Use localStorage to save and load the score (hint: you'll need to use JSON.stringify() to convert the score object to a string)</h3>
+    </main>
+    <footer>
+      <p>Copy Right</p>
+    </footer>
+
+    <script>
+
+      // Start Rock Papar Scissors
+
+      const gameScore = {
+        win: 0,
+        lose: 0,
+        tie: 0
+      }
+
+      let result = "";
+
+      function playGame(move) {
+        const computerMove = setRandomMove();
+
+
+        if (move === "rock" && computerMove === "scissors" ||
+            move === "paper" && computerMove === "rock" ||
+            move === "scissors" && computerMove === "paper") {
+          result = "You win!";
+          gameScore.win++;
+        } else if (move === computerMove) {
+          result = "It's a tie!";
+          gameScore.tie++;
+        } else {
+          result = "You lose!"
+          gameScore.lose++;
+        }
+
+        renderScore(move, computerMove);
+
+      }
+
+      function setRandomMove() {
+        const randomNumber = Math.random();
+
+        if (randomNumber >= 0 && randomNumber < 1/3) {
+          return "rock";
+        } else if (randomNumber >= 1/3 && randomNumber < 2/3) {
+          return "paper";
+        } else {
+          return "scissors"
+        }
+
+      }
+
+      function renderScore(move,computerMove) {
+
+        alert(`You picked ${move}. Computer picked ${computerMove}. ${result}\nWins: ${gameScore.win}, Losses: ${gameScore.lose}, Ties: ${gameScore.tie}`
+        );
+      }
+
+      function resetGame() {
+        gameScore.win = 0;
+        gameScore.lose = 0;
+        gameScore.tie = 0;
+        renderScore();
+
+
+      }
+
+
+      // End Rock Paper Scissors
+
+
+      //Start 7g Challenge Exercise
+      let calculation = localStorage.getItem("calculation") || "";
+
+      // let calculation = "";
+
+      function updateCalculation(num) {
+        calculation += num
+        console.log(calculation);
+      }
+
+      function total() {
+        calculation = eval(calculation).toString();
+        localStorage.setItem("calculation", calculation)
+        console.log(calculation);
+      }
+
+      function clearCalc() {
+        calculation = "";
+        localStorage.removeItem("calculation")
+        console.log(calculation);
+
+      }
+
+      //End 7g Challenge Exercise
+
+      // Start 7h - 7i Challenge Exercise
+      let quantity = 0;
+
+      function updateCartQuantity(num) {
+
+        if (!num) {
+          quantity = 0;
+          showQuantity()
+          return;
+        }
+
+        if (num > 0) {
+          return addCart(num);
+        } else {
+          return removeCart(num);
+        }
+
+      }
+
+
+      function showQuantity() {
+        console.log(`Cart quantity: ${quantity}`)
+      }
+
+      function addCart(num) {
+        const isMax = (quantity + (num)) > 10 && true;
+
+        if (isMax) {
+          alert("The cart is full");
+          return;
+        }
+
+        quantity += num;
+        showQuantity()
+      }
+
+      function removeCart(num) {
+        const isMin = (quantity + num) < 0 && true;
+
+        if (isMin) {
+          alert("Not enough items in the cart");
+          return;
+        }
+
+        quantity += num;
+        showQuantity()
+      }
+
+    </script>
+  </body>
+
+
+
+</html>
