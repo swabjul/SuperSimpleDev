@@ -175,7 +175,7 @@
 
       function updateScoreElem() {
         const renderScoreElem = document.querySelector(".js-score");
-        
+
         renderScoreElem.innerHTML = `<strong>Wins: ${gameScore.wins}, Losses: ${gameScore.lose}, Ties: ${gameScore.ties}</strong>`;
       }
 
@@ -185,6 +185,7 @@
         gameScore.ties = 0;
 
         document.querySelector(".js-result").innerHTML = "";
+        document.querySelector(".js-moves").innerHTML = "";
 
         updateScoreElem();
 
