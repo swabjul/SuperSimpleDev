@@ -105,28 +105,52 @@
 
         <h2>Lesson Exercises</h2>
         <h3>9a. Create a button 9a. Use document.querySelector('button') to get the button from the page, and then display it in the console.</h3>
+        <button>9a</button>
         <pre class="gray">
-          aaaaaaaaaaaaaaaaaaaaaaaaaa
+          // console.log(document.querySelector("button"));
         </pre>
         <h3>9b. Continuing from 9a, create another button 9b below. Using JavaScript, change the text in the second button to '9b done!' (hint: add a class and use .querySelector)</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaaaaaaaaaa
-        </pre>
+        <button class="js-9b" onclick='
+            const buttonElement = document.querySelector(".js-9b");
+            buttonElement.innerText = "9b done!";
+        '>9b</button>
         <h3>9c. Create 2 buttons 'heads' and 'tails', and a paragraph underneath. When clicking the 'heads' button, display 'You chose: heads' in the paragraph. When the 'tails' button, display 'You chose: tails'.</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaaaaaaaaaa
-        </pre>
+        <button onclick="
+          document.querySelector('.js-nineC').innerHTML = 'You chose: heads'
+        ">heads</button> 
+        <button onclick="
+          document.querySelector('.js-nineC').innerHTML = 'You chose: tails'
+        ">tails</button>
+        <p class="js-nineC"></p>
         <h3>9d. Create a text box input and a submit button. When clicking 'Submit', display 'Your name is: ${text}' on the page (${text} = the text inside the text box) (hint: use.value to get the text inside an input)</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaaaaaaaaaa
-        </pre>
+        <input type="text" placeholder="name" class="name-nineD">
+        <button onclick="
+          let name = document.querySelector('.name-nineD').value
+          console.log(name);
+
+          document.querySelector('.js-nineD').innerText = `You name is: ${name}`;
+        
+        ">Submit</button>
+        <p class="js-nineD"></p>
+
         <h3>9e. Modify exercise 9d sos that when you press 'Enter' in the input, it will alos display the same messsage on the page (hint: used onkeydown and the event object).</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaaaaaaaaaa
-        </pre>
+        <input type="text" placeholder="name" class="name-nineE" onkeydown="
+          if (event.key === 'Enter') {
+            let name = document.querySelector('.name-nineE').value
+            console.log(name);
+            document.querySelector('.js-nineE').innerText = `You name is: ${name}`
+          }
+        ">
+        <button onclick="
+          let name = document.querySelector('.name-nineE').value
+          console.log(name);
+          document.querySelector('.js-nineE').innerText = `You name is: ${name}`;
+        
+        ">Submit</button>
+        <p class="js-nineE"></p>
         <h3>9f. Continuing from 9e, create a function to reuse the code (if you already did this, skip this exercise)</h3>
         <pre class="gray">
-          aaaaaaaaaaaaaaaaaaaaaaaaaa
+          skipped
         </pre>
         <h2>Challenge Exercises</h2>
         <h3>9g. Create a file 9g.html and copy the code from 09 dom. In the Amazon Shipping Calculator, enter a cost of 7.99 and click 'Calculate'. What issue do you see? Find a fix for this issue.</h3>
