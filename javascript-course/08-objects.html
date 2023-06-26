@@ -271,16 +271,15 @@
           <li>When clcking 'tails' play the game with guess='tails'.</li>
           <li>Create a function 'playGame(guess)' to reuse the code.</li>
         </ul>
+        <h3>8j. Create a score object {wins: 0, losses: 0}, update the score each time after playing, and display the score in the console.</h3>
+        <h3>8k. Use localStorage to save and load the score (hint: you'll need to use JSON.stringify() to convert the score object to a string)</h3>
         <section class="prj-2">
-          <button onclick="playGame2('heads')">Heads</button>
-          <button onclick="playGame2('tails')">Tails</button>
+          <button onclick="playFlipGame('heads')">Heads</button>
+          <button onclick="playFlipGame('tails')">Tails</button>
+          <button onclick="resetFlipGame()">Reset Game</button>
         </section>
 
 
-
-
-        <h3>Create a score object {wins: 0, losses: 0}, update the score each time after playing, and display the score in the console.</h3>
-        <h3>Use localStorage to save and load the score (hint: you'll need to use JSON.stringify() to convert the score object to a string)</h3>
     </main>
     <footer>
       <p>Copy Right</p>
@@ -350,80 +349,52 @@
 
       // End Rock Paper Scissors
 
+      // Challenge Exercises 8i - 8k
+      
+      const gameFlipScore = JSON.parse(localStorage.getItem("flipGame")) || {
+        wins: 0,
+        lose: 0
+      };
 
-      //Start 7g Challenge Exercise
-      let calculation = localStorage.getItem("calculation") || "";
 
-      // let calculation = "";
+      function playFlipGame(guess) {
+        let randomFlip = setRandomFlip();
+        let resultFlipGame = "";
 
-      function updateCalculation(num) {
-        calculation += num
-        console.log(calculation);
-      }
+        guess === randomFlip ?  resultFlipGame = "You Win!" : resultFlipGame = "You Lose!";
 
-      function total() {
-        calculation = eval(calculation).toString();
-        localStorage.setItem("calculation", calculation)
-        console.log(calculation);
-      }
-
-      function clearCalc() {
-        calculation = "";
-        localStorage.removeItem("calculation")
-        console.log(calculation);
-
-      }
-
-      //End 7g Challenge Exercise
-
-      // Start 7h - 7i Challenge Exercise
-      let quantity = 0;
-
-      function updateCartQuantity(num) {
-
-        if (!num) {
-          quantity = 0;
-          showQuantity()
-          return;
-        }
-
-        if (num > 0) {
-          return addCart(num);
+        if (guess === randomFlip) {
+          resultFlipGame = "You Win!";
+          gameFlipScore.wins++;
         } else {
-          return removeCart(num);
+          resultFlipGame = "You Lose!"
+          gameFlipScore.lose++;
         }
 
+        localStorage.setItem("flipGame", JSON.stringify(gameFlipScore));
+        renderGame(guess, randomFlip,resultFlipGame);
+      } 
+
+
+      function setRandomFlip() {
+        let randomNumber = Math.random();
+        let flipResult = "";
+
+        randomNumber < 1/2 ? flipResult = "heads" : flipResult = "tails";
+        return flipResult;
+      }
+
+      function renderGame(guess, randomFlip,resultFlipGame) {
+        alert(`You choosed: ${guess}. Coin Result: ${randomFlip}. ${resultFlipGame}\nWins: ${gameFlipScore.wins}, Lose: ${gameFlipScore.lose}`);
       }
 
 
-      function showQuantity() {
-        console.log(`Cart quantity: ${quantity}`)
+      function resetFlipGame() {
+        gameFlipScore.wins = 0;
+        gameFlipScore.lose = 0;
+        localStorage.removeItem("flipGame");
+        alert("The Game has been reset");
       }
-
-      function addCart(num) {
-        const isMax = (quantity + (num)) > 10 && true;
-
-        if (isMax) {
-          alert("The cart is full");
-          return;
-        }
-
-        quantity += num;
-        showQuantity()
-      }
-
-      function removeCart(num) {
-        const isMin = (quantity + num) < 0 && true;
-
-        if (isMin) {
-          alert("Not enough items in the cart");
-          return;
-        }
-
-        quantity += num;
-        showQuantity()
-      }
-
     </script>
   </body>
 
