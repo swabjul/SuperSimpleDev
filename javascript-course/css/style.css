@@ -48,6 +48,17 @@ aside ul, main ul{
   margin-bottom: 20px;
 }
 
+#main-col button {
+  padding: 3px 10px;
+  margin-bottom: 5px;
+}
+#main-col input {
+  height: 21px;
+  padding: 0 5px;
+}
+
+
+
 footer {
   border-top: 1px solid #ccc;
   padding:20px 0;
