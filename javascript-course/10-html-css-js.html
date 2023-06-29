@@ -122,7 +122,7 @@
       #main-col .js-btn-toggle-10d.is-toggled, 
       #main-col .js-btn-toggle-gaming.is-toggled,
       #main-col .js-btn-toggle-music.is-toggled,
-      #main-col .js-btn-toggle-tech.is-toggled
+      #main-col .js-btn-toggle-tech.is-toggled,
       #main-col .js-btn-toggle-gaming-02.is-toggled,
       #main-col .js-btn-toggle-music-02.is-toggled,
       #main-col .js-btn-toggle-tech-02.is-toggled,
@@ -437,6 +437,21 @@
         }
 
       }
+
+      // Lesson 10d Exercise 
+      function toggle10E(selector) {
+        const btnElem = document.querySelector(`.js-btn-toggle-${selector}`);
+        const isToggled = btnElem.classList.contains("is-toggled")
+
+        if (!isToggled) {
+          btnElem.classList.add("is-toggled");
+          
+        } else {
+          btnElem.classList.remove("is-toggled");
+        }
+
+      }
+
 
       // Challenge 10G Exercise
       function toggle10G(selector) {
