@@ -78,6 +78,90 @@
       }
 
 
+      /* Exercise */
+      #main-col .amazon-btn {
+        background-color: rgb(255, 216, 20);
+        border: none;
+        padding: 10px 50px;
+        border-radius: 17px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      #main-col .uber-btn-01,
+      #main-col .uber-btn-02 {
+        border: none;
+        font-weight: bold;
+        padding: 15px 20px;
+        border-radius: 5px;
+      }
+      #main-col .uber-btn-01 {
+        background-color: #000;
+        color: #fff;        
+      }
+      #main-col .uber-btn-02 {
+        background-color: rgb(230, 230, 230);     
+      }
+
+      #main-col .js-btn-toggle-10d,
+      #main-col .js-btn-toggle-gaming,
+      #main-col .js-btn-toggle-music,
+      #main-col .js-btn-toggle-tech,
+      #main-col .js-btn-toggle-gaming-02,
+      #main-col .js-btn-toggle-music-02,
+      #main-col .js-btn-toggle-tech-02,    
+      #main-col .js-btn-toggle-02 {
+        border: none;
+        background-color: rgb(230, 230, 230);
+        padding: 15px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #main-col .js-btn-toggle-10d.is-toggled, 
+      #main-col .js-btn-toggle-gaming.is-toggled,
+      #main-col .js-btn-toggle-music.is-toggled,
+      #main-col .js-btn-toggle-tech.is-toggled
+      #main-col .js-btn-toggle-gaming-02.is-toggled,
+      #main-col .js-btn-toggle-music-02.is-toggled,
+      #main-col .js-btn-toggle-tech-02.is-toggled,
+      #main-col .js-btn-toggle-02.is-toggled  {
+        background-color: black;
+        color: white;
+      }
+      #container-calc {
+        background-color: black;
+        width: 260px;
+        padding: 30px;
+        border-radius: 25px;
+      }
+      #container-calc .js-calc-display {
+
+        color:white;
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 20px;
+        overflow: hidden;
+
+      }
+      #container-calc button {
+        border: none;
+        width: 60px;
+        height: 60px;
+        background-color: #333;
+        color: white;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      #container-calc p button:nth-child(4) {
+        background-color: #fea00a;
+      }
+
+
     </style>
 
   </head>
@@ -104,8 +188,6 @@
           <p class="js-cost-total"></p>
         </section>
 
-
-
         <section class="prj-1 rps">
           <h3>Rock Paper Scissors</h3>
           <button class="btn-img" onclick="playGame('rock')"><img src="img/rock.png" alt="rock"></button> 
@@ -115,38 +197,107 @@
           <p class="js-moves game-moves"></p>
           <p class="js-score game-score"></p>
           <button class="reset-btn" onclick="resetGame()">Reset Score</button>
+        </section>
+        
+        <h2>Lesson Exercises</h2>
+        <h3>Create the following buttons using HTML and CSS. The styles don't have to be exact (just use your best judgment).</h3>
+        <h3>10a. Amazon button</h3>
+        <button class="amazon-btn">Add to Cart</button>
+
+        <h3>10b. Uber Buttons</h3>
+        <button class="uber-btn-01">Request now</button>
+        <button class="uber-btn-02">Schedule for later</button>
+
+        <h3>10c. classList has another method, classList.contains('class-name'), whice checks if an element has a class</h3>
+        <ul>
+          <li>Create a button: class="js-button" Test</li>
+          <li>Use document.querySelector() and classList.contains('js-button') to check if this button has the class 'js-button'</li>
+          <li>console.log() the result</li>
+        </ul>
+        <button class="js-button js-button-10c">Test</button>
+        <pre class="gray">    
+          const btnElem10c = document.querySelector(".js-button-10c");
+          console.log(btnElem10c.classList.contains("js-button-10c"));
+
+          // true
+        </pre>
+
+        <h3>10d. Create the button on the right. When clicing this button, it should turn ON/OFF. Hints:</h3>
+        <ul>
+          <li>When clicing the button, add or remove the class 'is-toggled', and use it to change the styling.</li>
+          <li>Use if (classList.contains('is-toggled') tp decode whether to add or remove the 'is-toggled' class)</li>
+        </ul>
+        <button class="js-btn-toggle-10d" onclick="toggle10D()">Gaming</button>
+
+        <h3>10e. Continuing from 10d, create 3 buttons that can be turned ON / OFF</h3>
+        <button class="js-btn-toggle-gaming" onclick="toggle10E('gaming')">Gaming</button>
+        <button class="js-btn-toggle-music" onclick="toggle10E('music')">Music</button>
+        <button class="js-btn-toggle-tech" onclick="toggle10E('tech')">Tech</button>
 
 
+        <h3>10f. Continuing from 103, use a function to reuse the code, and separate each language into its own file (if you didn't do this already)</h3>
+        <pre class="gray">
+          skipped
+        </pre>   
 
+        <h2>Challenge Exercises</h2>
+        <h3>10g. Modify 10f so taht only 1 button can be ON at a time</h3>
+        <button class="js-btn-toggle-02 gaming" onclick="toggle10G('.gaming')">Gaming</button>
+        <button class="js-btn-toggle-02 music" onclick="toggle10G('.music')">Music</button>
+        <button class="js-btn-toggle-02 tech" onclick="toggle10G('.tech')">Tech</button>
+
+        <h3>10h. Create a file 10h.html and copy the code from 10-dom-project.html. In the Amazon Shipping Caculator, if we tpye a number less than 0, display red error message below the box:</h3>
+        <section class="prj-1 asc">
+          <h3>Amazon Shipping Calculator</h3>
+          <p>Orders under $40 = +$10 shipping.</p>
+          <p>Orders over $40 = FREE shipping.</p>
+          <input type="text" class="js-cst-input" placeholder="Cost of order" onkeydown="handlerKeyDownCst(event)"> 
+          <button onclick="costCalcTotal()">Calculate</button>
+          <p class="js-cst-total"></p>
         </section>
 
-        
+       <h3>We'll style the calculator project using CSS.</h3>
+        <ul>
+          <li>Make a copy of exercise 9j.</li>
+          <li>In your browser, go to:<br>supersimple.dev/projects/calculator-final</li>
+          <li>Using CSS, style the calculator project to look like the final design on the right.</li>
+        </ul>
+        <div id="container-calc">
+          <p class="js-calc-display"></p>
+          <p>
+            <button onclick="calc10i('1')">1</button>
+            <button onclick="calc10i('2')">2</button>
+            <button onclick="calc10i('3')">3</button>
+            <button onclick="calc10i(' + ')">+</button>
+          </p>
+          <p>
+            <button onclick="calc10i('4')">4</button>
+            <button onclick="calc10i('5')">5</button>
+            <button onclick="calc10i('6')">6</button>
+            <button onclick="calc10i(' - ')">-</button>
+          <p>
+            <button onclick="calc10i('7')">7</button>
+            <button onclick="calc10i('8')">8</button>
+            <button onclick="calc10i('9')">9</button>
+            <button onclick="calc10i(' * ')">*</button>
+          </p>
+          <p>
+            <button onclick="calc10i('0')">0</button>
+            <button onclick="calc10i('.')">.</button>
+            <button onclick="calc10i()">=</button>
+            <button onclick="calc10i(' / ')">/</button>
+          </p>
+          <p>
+            <button onclick="clearCalc()">Clear</button>
+          </p>
 
-        <h2>Lesson Exercises</h2>
-        <h3>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        </div>
+
+        <h3>Continuing from exercise 10i, seperate each language into its own file (if you didn't do this already)</h3>
         <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
+          // Skipped
         </pre>
-        <h3>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
-        </pre>
-        <h3>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
-        </pre>
-        <h3>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
-        </pre>
-        <h3>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
-        </pre>
-        <h3>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
-        <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
-        </pre>
+
 
       </div>  
     </main>
@@ -268,6 +419,120 @@
       document.addEventListener("DOMContentLoaded", (event) => {
         updateGameScore ();
       });
+
+      // lesson 10c Exercises
+      const btnElem10c = document.querySelector(".js-button-10c");
+      console.log(btnElem10c.classList.contains("js-button-10c"));
+
+      // Lesson 10d Exercises
+      function toggle10D() {
+        const btnELem = document.querySelector(".js-btn-toggle-10d");
+
+        let isToggled = btnELem.classList.contains('is-toggled');
+
+        if (!isToggled) {
+          btnELem.classList.add('is-toggled');
+        } else {
+          btnELem.classList.remove('is-toggled');
+        }
+
+      }
+
+      // Challenge 10G Exercise
+      function toggle10G(selector) {
+
+        const btnElem = document.querySelector(selector);
+        const isToggled = btnElem.classList.contains("is-toggled");
+
+        if (!isToggled) {
+          unToggleBtn()
+          btnElem.classList.add("is-toggled");
+
+        } else {
+          btnElem.classList.remove("is-toggled");
+
+        }
+      }
+
+
+      function unToggleBtn() {
+        const targetBtn = document.querySelector(".is-toggled");
+
+        if (targetBtn) {
+          targetBtn.classList.remove("is-toggled");
+        }
+
+      }
+
+      // Challenge 10h Exercise
+      function costCalcTotal() {
+        const inputElem = document.querySelector(".js-cst-input");
+        let cost = Number(inputElem.value);
+
+        if (cost <= 0) {
+          const errorMessage = `Error: cost cannot be less than $0`
+          document.querySelector('.js-cst-total').innerHTML = `<span style="color:red">${errorMessage}</span>`
+          return;
+        }
+
+        if (cost < 40) {
+          cost = Math.round((cost + 10) * 100) / 100;
+        } 
+
+        document.querySelector('.js-cst-total').innerText = cost;
+        inputElem.value = "";
+
+      }
+
+      function handlerKeyDownCst(event) {
+        if (event.key === "Enter") {
+          costCalcTotal();
+        }
+      }
+
+      // Challenge 10i
+      let calculation = localStorage.getItem("calc") || "";
+
+      function calc10i(selector) {
+
+        if (selector === undefined) {
+          calculation = eval(calculation);
+
+          if (!Number.isInteger(calculation)){
+            calculation = Number(calculation).toFixed(2);
+          }
+
+        } else {
+          calculation = calculation + selector;
+
+        }
+
+        renderCalc()
+
+        localStorage.setItem("calc", calculation)
+
+      }
+
+
+      function renderCalc() {
+        const targetText = document.querySelector(".js-calc-display");
+        targetText.innerHTML = calculation;
+
+      }
+
+      function clearCalc() {
+        calculation = "";
+        localStorage.removeItem("calc");
+        renderCalc();
+      }
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        renderCalc();
+
+      })
+
+
+
     </script>
   </body>
 

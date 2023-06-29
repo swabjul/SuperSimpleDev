@@ -56,7 +56,9 @@ aside ul, main ul{
   height: 21px;
   padding: 0 5px;
 }
-
+#main-col h3 {
+  margin-top: 40px;
+}
 
 
 footer {
