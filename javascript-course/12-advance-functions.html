@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperSimpleDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <style>
+      #main-col .prj-1.tdl h3:first-child{
+        margin-top: 0;
+      }
+      
+      /* ----- Rock Paper Scissors -----  */
+      #main-col .prj-1.rps {
+        background-color: #000;
+        color: gold;
+        text-align: center;
+        font-size: 40px;
+      }
+
+      #main-col .prj-1.rps h3{
+        font-size: 50px;
+      }
+
+      #main-col .prj-1.rps button.btn-img{
+        background-color: #000;
+        border: 2px solid gold;
+        border-radius: 100%;
+        padding: 40px;
+        cursor: pointer;
+      }
+
+      #main-col .prj-1.rps button.reset-btn, 
+      #main-col .prj-1.rps button.auto-btn {
+        border-radius: 5px;
+        background-color: black;
+        color: gold;
+        border: 1px solid gold;
+        padding: 10px 20px;
+        margin-top: 40px;
+        cursor: pointer;
+
+      }
+
+      #main-col .prj-1.rps img {
+        width: 100px;
+      }
+      /* ----- End Rock Paper Scissors -----  */
+
+
+      /* ----- To do List ----- */
+      #main-col .prj-1.tdl {
+        width: 600px;
+      }
+
+      #main-col .prj-1.tdl .todo-list p,
+      #main-col .prj-1.tdl .form-todo-list {
+        display: grid;
+        grid-template-columns: 200px 200px 100px;
+        column-gap: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #main-col .prj-1.tdl .todo-list p {
+        align-items: center;
+        font-size: 20px;
+        border-bottom: 1px dashed black;
+        padding: 5px 0;
+      }
+
+      #main-col .prj-1.tdl .form-todo-list {
+        align-items: flex-start;
+      }
+
+      #main-col .prj-1.tdl .todo-list .btn-delete {
+        background-color: darkred;
+        color: white;
+        font-weight: bold;
+        border: none;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      #main-col .prj-1.tdl .form-todo-list .btn-add {
+        background-color: green;
+        border: none;
+        color: #fff;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      #main-col .prj-1.tdl .form-todo-list > input {
+        height: 36px;
+        font-size: 20px;
+      }
+
+      /* ----- End To do List ----- */
+
+    </style>
+
+  </head>
+
+  <body>
+    <header>
+      <h1>SuperSimpleDev<span>- Advance Functions -</span></h1>
+    </header>
+    <main>
+      <aside>
+        <h2>Functions</h2>
+        <ul>
+          <li>functions are values</li>
+        </ul>
+        <h2>Kinds of function</h2>
+        <ul>
+          <li>Anonymous fuction<br></li>
+        </ul>
+        <h2>Anonymous fuction</h2>
+        <ul>
+          <li>Function without name</li>
+          <li>Easier to read</li>
+          <li>Hoisting</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>
+        <h2>Method</h2>
+        <ul>
+          <li>This is a function inside an object</li>
+        </ul>
+        <h2>Callback</h2>
+        <ul>
+          <li>Function being passed inside a function</li>
+        </ul>
+        <h2>setTimeout()</h2>
+        <ul>
+          <li>Allows us to run a function in the future</li>
+        </ul>
+        <h2>setInterval()</h2>
+        <ul>
+          <li>Allows us to run a by intervals</li>
+        </ul>
+        <h2>Asynchronous Code</h2>
+        <ul>
+          <li>Won't wait for a line to finish before going to the next line</li>
+        </ul>
+        <h2>Synchronous Code</h2>
+        <ul>
+          <li>Will wait for one line to fisish before going to the next line</li>
+        </ul>
+        <h2>.forEach()</h2>
+        <ul>
+          <li>This allows to loop through an array</li>
+        </ul>
+        <h2>Aaaaaaaaaaaaa</h2>
+        <ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>
+
+
+      </aside>
+      <div id="main-col">
+        <h2>Lesson 12 Project</h2>
+        <section class="prj-1 rps">
+          <h3>Rock Paper Scissors</h3>
+          <button class="btn-img" onclick="playGame('rock')"><img src="img/rock.png" alt="rock"></button> 
+          <button class="btn-img" onclick="playGame('paper')"><img src="img/paper.png" alt="paper"></button> 
+          <button class="btn-img" onclick="playGame('scissors')"><img src="img/scissors.png" alt="scissors"></button> 
+          <p class="js-result game-result"></p>
+          <p class="js-moves game-moves"></p>
+          <p class="js-score game-score"></p>
+          <button class="reset-btn" onclick="resetGame()">Reset Score</button> 
+          <button class="js-auto-btn auto-btn" onclick="autoPlayGame()">Auto Play</button>
+        </section>
+
+        <section class="prj-1 tdl">
+          <h3>Todo List</h3>
+          <div class="form-todo-list">
+          <input class="js-todo-input" type="text" placeholder="Todo name"> 
+          <input class="js-todo-date" type="date">
+          <button onclick="addTodoList()" class="btn-add">Add</button>
+          </div>
+          <div class="js-todo-list todo-list"></div>
+        </section>
+
+
+        <h2>Lesson 12 Exercises</h2>
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h2>Lesson 12 Challenge Exercises</h2>
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+        <h3>aaaaaaaaaaaaaaaaaaaaaaaa</h3>
+        <ul>
+          <li>aaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaa</li>
+        </ul>
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaaa
+        </pre>
+
+
+
+      </div>  
+    </main>
+    <footer>
+      <p>Copy Right</p>
+    </footer>
+
+    <script>
+
+      // Rock Paper Scissors
+      const gameScore = JSON.parse(localStorage.getItem("gameScore")) || {
+        wins: 0,
+        lose: 0,
+        ties: 0
+      };
+
+      function playGame(action) {
+        const computerMove = randomMove();
+        const myMove = action;
+        let gameResult = "";
+
+
+        if (myMove === "rock" && computerMove === "scissors" ||
+          myMove === "paper" && computerMove === "rock" ||
+          myMove === "scissors" && computerMove === "paper") {
+            gameResult = "You Win!";
+            gameScore.wins ++;
+
+          } else if (myMove === computerMove) {
+            gameResult = "It's a Tie!";
+            gameScore.ties ++;
+
+          } else {
+            gameResult = "You Lose!";
+            gameScore.lose ++;
+          }
+
+        console.log(computerMove);
+        renderResult(gameResult, computerMove, myMove);
+        renderScore();
+
+        localStorage.setItem("gameScore", JSON.stringify(gameScore));
+      }
+
+      function renderResult(result, computerMove, myMove) {
+        const targetRenderResult = document.querySelector(".js-result");
+        targetRenderResult.innerText = result;
+
+        const targetRenderMove = document.querySelector(".js-moves");
+        const html = `You <img src="img/${myMove}.png"> vs <img src="img/${computerMove}.png"> Computer`;
+        targetRenderMove.innerHTML = html;
+      }
+
+      function renderScore() {
+        const targetRenderScore = document.querySelector(".js-moves");
+        targetRenderScore.innerHTML = `Wins: ${gameScore.wins}, Losses: ${gameScore.lose}, Ties: ${gameScore.ties}`;
+      }
+
+      function randomMove() {
+        const randomNumber = Math.random();
+        console.log(randomNumber);
+        if (randomNumber >= 0 && randomNumber < 1/3)  {return "rock"}
+        else if (randomNumber >= 1/3 && randomNumber < 2/3) {return "paper"}
+        else {return "scissors"}
+      }
+
+      function resetGame() {
+        gameScore.wins = 0;
+        gameScore.lose = 0;
+        gameScore.ties = 0;
+
+        localStorage.removeItem("gameScore")
+        renderScore();
+
+        const targetRenderResult = document.querySelector(".js-result");
+        targetRenderResult.innerText = "";
+      }
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        renderScore();
+      });
+
+      let isAutoPlaying = false;
+      let setIntervalID;
+
+
+      function autoPlayGame() {
+        const btnElem = document.querySelector(".js-auto-btn");
+        const myMove = randomMove();
+
+        if (!isAutoPlaying) {
+          setIntervalID = setInterval(() => {
+            playGame(myMove)
+          }, 1000)
+        
+          btnElem.innerText = "Stop";
+          isAutoPlaying = true;
+
+        } else {
+          clearInterval(setIntervalID);
+          btnElem.innerText = "Auto Play";
+          isAutoPlaying = false;
+
+        }
+      }
+      // End Rock Paper Scissors
+    </script>
+  </body>
+
+
+
+</html>
