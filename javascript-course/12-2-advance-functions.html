@@ -107,7 +107,7 @@
 
   <body>
     <header>
-      <h1>SuperSimpleDev<span>- Advance Functions -</span></h1>
+      <h1>SuperSimpleDev<span>- Advance Functions Part 2-</span></h1>
     </header>
     <main>
       <aside>
@@ -159,21 +159,37 @@
           <li>Can add multiple listeners in one event</li>
           <li>We can remove event listeners</li>
         </ul>
-
-
+        <h2>.filter()</h2>
+        <ul>
+          <li>Creates a new array []</li>
+          <li>return true, => put the value in array</li>
+          <li>return false, => not put the value in array</li>
+        </ul>
+        <h2>.map()</h2>
+        <ul>
+          <li>Create a new array []</li>
+          <li>Whatever we return => add to new array</li>
+          <li>Transform an array into another array</li>
+        </ul>
+        <h2>Closure</h2>
+        <ul>
+          <li>If a function has access to a value</li>
+          <li>It will always have access to that value</li>
+          <li>Value gets packaged together (enclosed) with the function</li>
+        </ul>
       </aside>
       <div id="main-col">
         <h2>Lesson 12 Project</h2>
-        <section class="prj-1 rps">
+        <section class="js-rps prj-1 rps" tabindex="0">
           <h3>Rock Paper Scissors</h3>
-          <button class="btn-img" onclick="playGame('rock')"><img src="img/rock.png" alt="rock"></button> 
-          <button class="btn-img" onclick="playGame('paper')"><img src="img/paper.png" alt="paper"></button> 
-          <button class="btn-img" onclick="playGame('scissors')"><img src="img/scissors.png" alt="scissors"></button> 
+          <button class="btn-img js-rock-btn"><img src="img/rock.png" alt="rock"></button> 
+          <button class="btn-img js-paper-btn"><img src="img/paper.png" alt="paper"></button> 
+          <button class="btn-img js-scissors-btn"><img src="img/scissors.png" alt="scissors"></button> 
           <p class="js-result game-result"></p>
           <p class="js-moves game-moves"></p>
           <p class="js-score game-score"></p>
-          <button class="reset-btn" onclick="resetGame()">Reset Score</button> 
-          <button class="js-auto-btn auto-btn" onclick="autoPlayGame()">Auto Play</button>
+          <button class="js-reset-btn reset-btn">Reset Score</button> 
+          <button class="js-auto-btn auto-btn">Auto Play</button>
         </section>
 
         <section class="prj-1 tdl">
@@ -181,188 +197,168 @@
           <div class="form-todo-list">
           <input class="js-todo-input" type="text" placeholder="Todo name"> 
           <input class="js-todo-date" type="date">
-          <button onclick="addTodoList()" class="btn-add">Add</button>
+          <button class="js-add-btn btn-add">Add</button>
           </div>
           <div class="js-todo-list todo-list"></div>
         </section>
 
 
-        <h2>Lesson 12 Exercises</h2>
-        <h3>12a. Create a variable called 'add' and save a function inside. This function will console.log(2 + 3); Run the function twice</h3>
-        <pre class="gray">
-          const add = function () {
-            console.log(2 + 3);
-          }
-          
-          add();
-          add();
-        </pre>
-        <h3>12b. Conitinuing from exercise 12a, create a function runTwice(fun) that takes a function (as a parameter) and runs it twice</h3>
+        <h2>Lesson 12 Exercises Part 2</h2>
+        <h3>12j. Create an arrow function called 'multiply' that takes 2 numbers, multiplies them together, and returns the result.</h3>
         <ul>
-          <li>runTwice(function () {console.log('12b');}); => console.log('12b') twice</li>
-          <li>runTwice(add); => console.log(5) twice</li>
-        </ul>
+          <li>multiply(2, 3) => 6</li>
+          <li>multiply(7, 10) => 70</li>
+        </ul>   
         <pre class="gray">
-          const add = function () {
-            console.log(2 + 3);
+          const multiply = (num1, num2) => num1 * num2;
+
+          console.log(multiply(2, 3));
+          console.log(multiply(7, 10));
+        </pre>
+        <h3>12k. Continuing from exercise 12k, write the arrow function on one line (if you already did this skip this exercise)</h3>
+        <pre class="gray">
+          Skipped
+        </pre>
+        <h3>12l. Create a function countPositive(nums) that takes an array of numbers and returns how many numbers in the array are greater than 0. Create this function using .forEach() instead of a loop</h3>
+        <ul>
+          <li>countPositive([1, -3, 5]) => 2</li>
+          <li>countPositive([-2, 3, -5, 7, 10]) => 3</li>
+        </ul>   
+        <pre class="gray">
+          function countPositive(nums) {
+            let count = 0;
+          
+            nums.forEach((value) => {
+              value >= 0 ? count++ : count;
+            });
+            
+            return count;
           }
           
-          function runTwice(fun) {
-            fun();
-            fun();
-          }
+          console.log(countPositive([1, -3, 5]));
+          console.log(countPositive([-2, 3, -5, 7, 10]));
           
-          runTwice(function() {console.log('12b');});
-          runTwice(add);
+        </pre>
+        <h3>12m. Create a function addNum(array, num) that takes an array of numbers and returns an array where each number is increased by 'num'. Create this function using .map() instead of a loop</h3>
+        <ul>
+          <li>addNum([1, 2, 3], 2) => [3, 4, 5]</li>
+          <li>addNum([-2, -1, 0, 99], 2) => [0, 1, 2, 101]</li>
+          <li>Bunos: try to use the one-line shortcut in your solution.</li>
+        </ul>   
+        <pre class="gray">
+          function addNum(array, num) {
+            return array.map(value => value + num); 
+          };
+          
+          console.log(addNum([1, 2, 3], 2));
+          console.log(addNum([-2, -1, 0, 99], 2));
+        </pre>
+        <h3>12n. Create a function removeEgg(foods) that takes an array of strings and returns an array where the string 'egg' is removed. Create this function using .filter() instead of a loop</h3>
+        <ul>
+          <li>removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']) => ['apple', 'ham']</li>
+        </ul>   
+        <pre class="gray">
+          function removeEggs(foods) {
+            return foods.filter(value => value !== "egg");
+          };
+          
+          console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));
+        </pre>
+        <h3>12o. Update exercise 12n to only remove the first 2 eggs from the array.<br>Again, use .filter() instead of a loop</h3>
+        <ul>
+          <li>reMoveEgg(['egg', 'apple', 'egg', 'egg', 'ham']) => ['apple', 'egg', 'ham']</li>
+        </ul>   
+        <pre class="gray">
+          function removeEggs(foods) {
+            let count = 0;
+          
+            return foods.filter(value => {
+              if (value === "egg" && count < 2) {
+                count++
+                return false
+              } 
+          
+              return value;
+            });
+          };
+          
+          console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));
         </pre>
 
-        <h3>12c. Create the button below. When clicking the button, after 1 second the text inside the button changes to 'Finished'<br>(Hint: use setTimeout() and the DOM)</h3>
+        <h3>12p. Go back to the earlier exercises in lesson 12 (12c - 12i) and switch the code to use arrow function. (When passing function into another function, use arrow functions. Otherwise, you can use either systax.)</h3> 
         <pre class="gray">
-          <button class="js-button-12c" onclick="start12c()">Start</button>
-
-          function start12c() {
-            const btnElem = document.querySelector(".js-button-12c");
-          
-            setTimeout(() => {
-              btnElem.innerText = "Finished!";
-          
-            },1000);
-          }
+          aaaaaaaaaaaaaaaaa
         </pre>
-
-
-        <h3>Continuing from exercise 12c, modify the button so that when we click it, the text immediately changes to 'Loading...' and then after 1 second, it changes to 'Finished!'</h3>
+        <h3>12q. Go back to the earlier exercises in the lesson 12 (12c - 12i) and instead of using onclick="...", switch the code to use .addEventListener('click', ...)</h3> 
         <pre class="gray">
-          <button class="js-button-12d" onclick="start12d()">Start</button>
-          function start12d() {
-            const btnElem = document.querySelector(".js-button-12d");
-            btnElem.innerText = "Loading..."
-          
-            setTimeout(() => {
-              btnElem.innerText = "Finished!";
-            },1000);
-          }
-        </pre>
-
-        <h3>12e. Cteate the 'Add to cart' button below. When clicking this button, display the message 'Added' below the button. Then, after 2 seconds, remove the message</h3>
-        <pre class="gray">
-          <button class="js-button-12e" onclick="add12e()">Add to cart</button>
-          <p class="js-add-12e"></p>
-          function add12e()  {
-            const txtElem = document.querySelector(".js-add-12e");
-            txtElem.innerText = "Added";
-          
-            setTimeout(() => {
-              txtElem.innerText = "";
-            },2000)
-          }
+          aaaaaaaaaaaaaaaaa
         </pre>
 
         <h2>Lesson 12 Challenge Exercises</h2>
-        <h3>Continuing from 12e, if we click the button, wait 1 to 1.5 seconds, and then click the button again, notice that the second time, the message disappears very quickly (because the first setTimeout is still running and will make the message disappear very soon)</h3>
+        <h3>Make a copy of the Rock Paper Scissors game into the files 12r.htmk</h3> 
         <ul>
-          <li>Modify the code so when we click the button, it "refreshes" the 2 second wait time (waits for 2 seconds again and removes message).</li>
-          <li>Hint: you can cancel the previous setTimeout using clearTimeout()</li>
-        </ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
         <pre class="gray">
-          <button class="js-button-12f" onclick="add12f()">Add to cart</button>
-          <p class="js-add-12f"></p>
-          let setTimeoutID;
-
-          function add12f()  {
-            const txtElem = document.querySelector(".js-add-12f");
-            txtElem.innerText = "Added";
-
-            clearTimeout(setTimeoutID);
-
-            setTimeoutID = setTimeout(() => {
-              txtElem.innerText = "";
-            },2000)
-          }
+          aaaaaaaaaaaaaaaaa
         </pre>
-
-        <h3>12g. Imagine we're creating a messaging app. Use setInterval() and document.title to create the feature on the right (the title changes every 1 second)</h3>
-        <pre class="gray">
-          let count = 2;
-          setInterval(() => {
-
-            if (document.title === "App" ) {
-              document.title = `(${count}) New messages)` 
-              count++;
-            } else {
-              document.title = "App";
-            }
-
-
-          },1000);
-        </pre>
-
-        <h3>12h. Continuing from 12g, instead of displaying "(2) New messages" every time, save the number of messages in a variable: let message = 2;</h3>
+        <h3>12s. Update the 'Auto Play' button to use .addEventListener('click', ...) instead of onclick="..."</h3> 
         <ul>
-          <li>Use the number in the variable to determind waht title to display.</li>
-          <li>Create 2 buttons 'Add' / 'Remove' that increase / decrease the 'messages' variable by 1</li>
-        </ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
         <pre class="gray">
-          <button onclick="add12h()">Add</button> <button onclick="remove12h()">Remove</button> 
-          let count = 2;
-          setInterval(() => {
-
-            if (document.title === "App" ) {
-              document.title = `(${count}) New messages)` 
-            } else {
-              document.title = "App";
-            }
-
-          },1000);
-
-
-          function add12h() {
-            count++
-          }
-
-          function remove12h() {
-            count--
-          }
+          aaaaaaaaaaaaaaaaa
         </pre>
-        <h3>12i. Continuing from 12h:</h3>
+        <h3>Update the 'Auto Play' button so that when the game is auto playing, the text in the button is 'Stop Playing'. Otherwise, the tet in the button is 'Auto Play'</h3> 
         <ul>
-          <li>Dont let 'messages' go below 0.</li>
-          <li>If messages === 0 stop changing the title and display 'App' as the title</li>
-          <li>When messages > 0 start changing the title again.</li>
-        </ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
         <pre class="gray">
-          <button onclick="add12i()">Add</button> <button onclick="remove12i()">Remove</button> 
-          let count = 2;
-          setInterval(() => {
-
-            if (count === 1) {
-              document.title = "App";
-              return;
-            }
-
-            document.title === "App"
-            ? document.title = `(${count}) New messages`
-            : document.title = "App";
-
-          },1000);
-
-          function add12i() {
-            count++
-          }
-
-          function remove12i() {
-            count > 0 ? count-- : count;
-          }
+          aaaaaaaaaaaaaaaaa
         </pre>
-        <h3>1aaaaaaaaaaaaaaaaa</h3>
+        <h3>Update the code so pressing 'a' on keyboard will auto play the game</h3> 
         <ul>
-          <li>aaaaaaaaaaaaaaaaa</li>
-          <li>aaaaaaaaaaaaaaaa</li>
-        </ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
         <pre class="gray">
-          aaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaa
         </pre>
-
+        <h3>Update the 'Reset Score' button to use .addEventListener('click', ...)</h3> 
+        <ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaa
+        </pre>
+        <h3>Update the code so pressing 'Backspace' will reset the score</h3> 
+        <ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaa
+        </pre>
+        <h3>When clickng 'Reset Score' or pressing 'Backspace', instead of resetting the score immediately, display a confirmation message below the button</h3> 
+        <ul>
+          <li>Clicking 'Yes' will reset the score, and hide the message</li>
+          <li>Clicking 'No' will not reset the score, and hide the messasge</li>
+        </ul>       
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaa
+        </pre>
+        <h3>aaaaaaaaaaaaaaa</h3> 
+        <ul>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+          <li>aaaaaaaaaaaaaaaaaaaaaa</li>
+        </ul>       
+        <pre class="gray">
+          aaaaaaaaaaaaaaaaa
+        </pre>
 
       </div>  
     </main>
@@ -417,7 +413,7 @@
       }
 
       function renderScore() {
-        const targetRenderScore = document.querySelector(".js-moves");
+        const targetRenderScore = document.querySelector(".js-score");
         targetRenderScore.innerHTML = `Wins: ${gameScore.wins}, Losses: ${gameScore.lose}, Ties: ${gameScore.ties}`;
       }
 
@@ -441,9 +437,7 @@
         targetRenderResult.innerText = "";
       }
 
-      document.addEventListener("DOMContentLoaded", (event) => {
-        renderScore();
-      });
+
 
       let isAutoPlaying = false;
       let setIntervalID;
@@ -451,10 +445,11 @@
 
       function autoPlayGame() {
         const btnElem = document.querySelector(".js-auto-btn");
-        const myMove = randomMove();
+
 
         if (!isAutoPlaying) {
           setIntervalID = setInterval(() => {
+            const myMove = randomMove();
             playGame(myMove)
           }, 1000)
         
@@ -468,10 +463,41 @@
 
         }
       }
+
+      document.addEventListener("DOMContentLoaded", e => {
+        renderScore();
+
+        document.querySelector(".js-rock-btn").addEventListener("click", () => {
+          playGame('rock');
+        });
+
+        document.querySelector(".js-paper-btn").addEventListener("click", () => {
+          playGame('paper');
+        });
+
+        document.querySelector(".js-scissors-btn").addEventListener("click", () => {
+          playGame('scissors');
+        });
+
+        document.querySelector(".js-reset-btn").addEventListener("click", () => {
+          resetGame();
+        })
+
+        document.querySelector(".js-auto-btn").addEventListener("click", () => {
+          autoPlayGame()
+        })
+
+
+        document.querySelector(".js-rps").addEventListener("keydown", e => {
+          if (e.key === "r") playGame('rock');
+          else if (e.key === "p") playGame('paper');
+          else if (e.key === "s") playGame('scissors');
+        });
+
+      });
       // End Rock Paper Scissors
 
       // Todo List 
-      
       const todoList = JSON.parse(localStorage.getItem("ToDoList")) || [
         {
           name: "make dinner",
@@ -493,9 +519,7 @@
         todoList.push({name, dueDate});
         renderTodoList();
         localStorage.setItem("ToDoList", JSON.stringify(todoList));
-
       }
-
 
       function renderTodoList() {
         const targetRenderElem = document.querySelector(".js-todo-list");
@@ -508,11 +532,7 @@
             <p>
               <span>${name}</span> 
               <span>${dueDate}</span> 
-              <button class="btn-delete" onclick="
-              todoList.splice(${index}, 1);
-              localStorage.setItem('ToDoList', JSON.stringify(todoList));
-              renderTodoList();
-              ">Delete</button>
+              <button class="btn-delete js-delete-todo-btn">Delete</button>
             </p>
           `;
 
@@ -521,11 +541,28 @@
 
         targetRenderElem.innerHTML = todoListHTML;
 
+        document.querySelectorAll(".js-delete-todo-btn")
+          .forEach((deleteBtn, index) => {
+            deleteBtn.addEventListener("click", () => {
+              todoList.splice(index, 1);
+              localStorage.setItem('ToDoList', JSON.stringify(todoList));
+              renderTodoList();  
+            });
+          });
+
+
       }
 
       document.addEventListener("DOMContentLoaded", (event) => {
         renderTodoList();
+
+        document.querySelector(".js-add-btn").addEventListener("click", () => {
+          addTodoList();
+        });
+
       });
+      // End Todo List
+
 
     </script>
   </body>
