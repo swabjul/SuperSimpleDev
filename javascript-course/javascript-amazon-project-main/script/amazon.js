@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", e => {
       </div>
   
       <div class="product-quantity-container">
-        <select>
+        <select class="js-quantity-selector-${product.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", e => {
   
       <div class="product-spacer"></div>
   
-      <div class="added-to-cart">
+      <div class="added-to-cart js-checkmark-${product.id}">
         <img src="images/icons/checkmark.png">
         Added
       </div>
@@ -59,31 +59,55 @@ document.addEventListener("DOMContentLoaded", e => {
   
   document.querySelector(".js-products-grid").innerHTML = productHTML;
 
+
+  let setTimeoutId;
+
   document.querySelectorAll(".js-add-to-cart").forEach(button => {
     button.addEventListener("click", () => {
-      const productId = button.dataset.productId;
+      const {productId} = button.dataset;
       let matchingItem;
+
+      const selectElem = document.querySelector(`.js-quantity-selector-${productId}`)
+      const quantity = Number(selectElem.value);
 
       cart.forEach(item => {
         if (productId === item.productId) matchingItem = item;
       });
 
       if (matchingItem) {
-        matchingItem.quantity++
+        matchingItem.quantity += quantity;
 
       } else {
-        cart.push({
-          productId,
-          quantity: 1
-        });
+        cart.push({productId, quantity});
       }
 
       console.log(cart);
 
+
+      let cartQuantity = 0;
+
+      cart.forEach(item => {
+        cartQuantity += item.quantity
+      });
+
+      document.querySelector(".js-cart-quantity").innerText = cartQuantity;
+
+      
+      const addedMark = document.querySelector(`.js-checkmark-${productId}`)
+      addedMark.classList.add("visible");
+
+      clearTimeout(setTimeoutId);
+
+      setTimeoutId = setTimeout(() => {
+        addedMark.classList.remove("visible");
+      },2000);
+
+
+
+
+
     });
   });
-
-  aaa
 
 
 
